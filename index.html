@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIW Clicker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Bogle&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #left,
+        #right {
+            position: absolute;
+            top: 50%;
+            color: white;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 50px;
+            cursor: pointer;
+            z-index: 10;
+            text-shadow: 5px 5px 5px black;
+        }
+
+        #left {
+            left: 25%;
+        }
+
+        #right {
+            right: 25%;
+        }
+
+        #left:hover,
+        #right:hover {
+            color: lightgray;
+        }
+
+        #left:active,
+        #right:active {
+            color: gray;
+            font-size: 48px;
+        }
+
+        #lock {
+            position: absolute;
+            top: 15%;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 50px;
+            text-shadow: 6px 6px 6px black;
+            z-index: 10;
+        }
+
+        #coins {
+            position: absolute;
+            top: 5%;
+            left: 10%;
+            color: white;
+            font-family: 'BBH Bogle', cursive;
+            font-size: 30px;
+            text-shadow: 4px 4px 4px black;
+            z-index: 10;
+        }
+
+        #clicks {
+            position: absolute;
+            top: 5%;
+            right: 15%;
+            color: white;
+            font-family: 'BBH Bogle', cursive;
+            font-size: 30px;
+            text-shadow: 4px 4px 4px black;
+            z-index: 10;
+        }
+
+        .shop {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'BBH Bogle', cursive;
+            font-size: 20px;
+            text-shadow: 2px 2px 2px black;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            width: 200px;
+            height: 500px;
+            overflow-y: auto;
+        }
+
+        .upgrade button:hover {
+            background-color: lightgreen;
+        }
+
+        .upgrade button:active {
+            background-color: darkgreen;
+        }
+
+        .achievements {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            transform: translateX(50%);
+            color: white;
+            font-family: 'BBH Bogle', cursive;
+            font-size: 20px;
+            text-shadow: 2px 2px 2px black;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            width: 200px;
+            height: 500px;
+            overflow-y: auto;
+        }
+
+        #reset {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'BBH Bogle', cursive;
+            font-size: 20px;
+            text-shadow: 2px 2px 2px black;
+            z-index: 10;
+            background-color: red;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="opac"
+        style="position: absolute; left:0; width:300vh; height:100vh; background-color: rgba(0, 0, 0, 0.9); z-index: 999;">
+    </div>
+    <div class="intro"
+        style="position: absolute; top: 37.5%; left: 37.5%; color: white; text-shadow: 0 0 5px black; width: 300px; font-family: Arial, sans-serif; background-color: black; padding: 20px; border-radius: 10px; z-index: 1000;">
+        <center>
+            <h1>AIW Clicker! || ALPHA version</h1>
+            <h3>Made by Vivid!</h3>
+            <p>Loading...</p>
+        </center>
+    </div>
+    <face id="coins" size="30">COINS:</face>
+    <face id="clicks" size="30">CLICKS:</face>
+    <div class="shop">
+        <hr/>
+        <div style="text-align: center; font-size: 25px; margin-bottom: 10px;">UPGRADES</div>
+        <!-- Base Click Upgrade -->
+        <div class="upgrade" id="base_click_upgrade" style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center><h1>Base Click Upgrade</h1></center>
+            <center><h4>Cost: 100 coins</h4></center>
+            <center><div class="lvl">Level: 0/5</div></center>
+            <center><p>Increases coins per click by 1</p></center>
+            <center><button style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive";>Buy</button></center>
+        </div>
+        <!-- Auto Clicker Upgrade -->
+        <div class="upgrade" id="auto_clicker_upgrade" style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center><h1>Auto Clicker Upgrade</h1></center>
+            <center><h4>Cost: 170 coins</h4></center>
+            <center><div class="lvl">Level: 0/10</div></center>
+            <center><p>Automatically clicks for you every second</p></center>
+            <center><button style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive";>Buy</button></center>
+        </div>
+        <!-- Multiplier Upgrade -->
+        <div class="upgrade" id="multiplier_upgrade" style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center><h1>Multiplier Upgrade</h1></center>
+            <center><h4>Cost: 1000 coins</h4></center>
+            <center><div class="lvl">Level: 0/3</div></center>
+            <center><p>Multiplies coins per click</p></center>
+            <center><button style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive";>Buy</button></center>
+        </div>
+        <!-- Unlock Kai-->
+        <div class="upgrade" id="unlock_kai" style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center><h1>Unlock Kai</h1></center>
+            <center><h4>Cost: 9000 coins</h4></center>
+            <center><p>Unlocks the Kai cube for clicking</p></center>
+            <center><button style="font-size:23px; width: 55%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive";>Buy</button></center>
+        </div>
+        <!-- Unlock Andrew -->
+        <div class="upgrade" id="unlock_andrew" style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center><h1>Unlock Andrew</h1></center>
+            <center><h4>Cost: 25000 coins</h4></center>
+            <center><p>Unlocks the Andrew cube for clicking</p></center>
+            <center><button style="font-size:23px; width: 55%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive";>Buy</button></center>
+        </div>
+    </div>
+    <div class="achievements">
+        <hr/>
+        <div style="text-align: center; font-size: 25px; margin-bottom: 10px;">ACHIEVEMENTS</div>
+    </div>
+    <h1 id="lock">LOCKED</h1>
+    <!--the 3d cubes-->
+    <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+    </div>
+
+    <div class="cube2">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+    </div>
+
+    <div class="cube3">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+    </div>
+
+    <!--buttons for switching cubes-->
+    <button id="left" onclick="if(active_cube > 1) active_cube--"><</button>
+            <button id="right" onclick="if(active_cube < 3) active_cube++">></button>
+            <button id="reset">RESET THE GAME</button>
+            <script>
+                if (localStorage.getItem('reset') !== null) {
+                    localStorage.removeItem('data');
+                    localStorage.removeItem('reset');
+                }
+
+                let active_cube = 2;
+                let data = {
+                    clicks: 0,
+                    coins: 0,
+                    upgrades: [
+                        { name: 'base_click', level: 1 }
+                    ],
+                    achivements: [],
+                    cubes: ["albert"],
+                    active_cube: 2
+                }
+                // try to load data
+                try {
+                    const savedData = localStorage.getItem('data');
+                    if (savedData) {
+                        data = JSON.parse(savedData);
+                        active_cube = data.active_cube || 2;
+                    }
+                } catch (e) {
+                    console.error('Failed to load data:', e);
+                }
+                setInterval(() => {
+                    document.getElementById('coins').innerHTML = `COINS: <color style="color: yellow;">${data.coins}</color>`;
+                    document.getElementById('clicks').innerHTML = `CLICKS: <color style="color: yellow;">${data.clicks}</color>`;
+                }, 100);
+                setInterval(() => {
+                    // save data every 1 seconds
+                    try {
+                        data.active_cube = active_cube;
+                        localStorage.setItem('data', JSON.stringify(data));
+                    } catch (e) {
+                        console.error('Failed to save data:', e);
+                    }
+                }, 1000);
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    setTimeout(() => {
+                        const intro = document.querySelector('.intro');
+                        const opac = document.querySelector('.opac');
+                        intro.style.transition = 'opacity 1s';
+                        opac.style.transition = 'opacity 1s';
+                        intro.style.opacity = '0';
+                        opac.style.opacity = '0';
+                        setTimeout(() => {
+                            intro.remove();
+                            opac.remove();
+                        }, 1000);
+                    }, 3000); // 3 seconds
+                });
+
+                let hue = 270; // start around purple
+                let dir = 1; // direction of hue change
+                setInterval(bgGrad, 50);
+
+                function bgGrad() {
+                    // keep hue cycling only within purple range
+                    document.body.style.background = `linear-gradient(
+        135deg,
+        hsl(${hue}, 70%, 5%),
+        hsl(${(hue + 20) % 360}, 70%, 5%)
+            )`;
+
+                    // increment hue but clamp it to purple range (260–300)
+                    hue = hue + dir * 0.5;
+                    if (hue > 300) dir = -1;
+                    if (hue < 260) dir = 1;
+                }
+
+                // create a overlay canvas
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.style.position = 'absolute';
+                canvas.style.top = '0';
+                canvas.style.left = '0';
+                canvas.style.pointerEvents = 'none';
+                document.body.appendChild(canvas);
+
+                function renderCubes() {
+                    const cube = document.querySelector('.cube');
+                    const cube2 = document.querySelector('.cube2');
+                    const cube3 = document.querySelector('.cube3');
+
+                    cube.style.display = active_cube === 1 ? 'block' : 'none';
+                    cube2.style.display = active_cube === 2 ? 'block' : 'none';
+                    cube3.style.display = active_cube === 3 ? 'block' : 'none';
+
+                    const cubeElem = document.querySelector(`.cube${active_cube === 1 ? '' : active_cube}`);
+                    const cubeName = active_cube === 1 ? 'kai' : active_cube === 2 ? 'albert' : 'andrew';
+
+                    if (data.cubes.includes(cubeName)) {
+                        for (const face of cubeElem.querySelectorAll('.face')) {
+                            face.style.filter = 'none';
+                        }
+                        document.getElementById('lock').innerHTML = "CLICK!"
+                    } else {
+                        for (const face of cubeElem.querySelectorAll('.face')) {
+                            face.style.filter = 'grayscale(50%) brightness(50%)';
+                        }
+                        document.getElementById('lock').innerHTML = "LOCKED";
+                    }
+
+                    // gray out buttons if at the end or start
+                    document.getElementById('left').style.opacity = active_cube === 1 ? '0.5' : '1';
+                    document.getElementById('right').style.opacity = active_cube === 3 ? '0.5' : '1';
+                }
+                setInterval(renderCubes, 100);
+
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+                window.addEventListener('resize', resizeCanvas);
+                resizeCanvas();
+                // draw floating particles on click
+                document.body.addEventListener('click', (e) => {
+                    const x = e.clientX;
+                    const y = e.clientY;
+                    for (let i = 0; i < 5; i++) {
+                        parti(x, y);
+                    }
+                });
+
+                function parti(x, y) {
+                    const size = Math.random() * 4 + 2;
+                    let posX = x;
+                    let posY = y;
+                    const speedX = (Math.random() - 0.5) * 4;
+                    const speedY = (Math.random() - 0.5) * 4;
+                    let life = 100;
+
+                    function draw() {
+                        if (life <= 0) return;
+                        ctx.fillStyle = `hsl(${Math.random() * 360}, 70%, 70%)`;
+                        ctx.beginPath();
+                        ctx.arc(posX, posY, size, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        posX += speedX;
+                        posY += speedY;
+                        life--;
+
+                        requestAnimationFrame(draw);
+                    }
+                    draw();
+                }
+
+                // create floating orbs
+                const orbs = [];
+                for (let i = 0; i < 20; i++) {
+                    orbs.push({
+                        x: Math.random() * window.innerWidth,
+                        y: Math.random() * window.innerHeight,
+                        size: Math.random() * 10 + 5,
+                        speed: (Math.random() - 0.5) * 0.5,
+                    });
+                }
+                function drawOrbs() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    orbs.forEach((orb) => {
+                        ctx.fillStyle = `rgba(255, 255, 255, 0.05)`;
+                        ctx.beginPath();
+                        ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        orb.y += orb.speed;
+                        if (orb.y < -orb.size) orb.y = window.innerHeight + orb.size;
+                        if (orb.y > window.innerHeight + orb.size) orb.y = -orb.size;
+                    });
+                    requestAnimationFrame(drawOrbs);
+                }
+                drawOrbs();
+
+                // create 3d cubes
+                const size = 150;
+                const cube = document.querySelector('.cube');
+                cube.style.position = 'absolute';
+                cube.style.width = size + 'px';
+                cube.style.height = size + 'px';
+                cube.style.transformStyle = 'preserve-3d';
+                cube.style.animation = 'idleCube 5s linear infinite';
+                cube.style.perspective = '800px';
+                cube.style.willChange = 'transform';
+                const faces = cube.querySelectorAll('.face');
+                faces.forEach((face, index) => {
+                    face.style.position = 'absolute';
+                    face.style.width = size + 'px';
+                    face.style.height = size + 'px';
+                    face.style.background = `blue`;
+                    face.style.backfaceVisibility = 'hidden';
+                    switch (index) {
+                        case 0:
+                            face.style.transform = 'translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 1:
+                            face.style.transform = 'rotateY(180deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 2:
+                            face.style.transform = 'rotateY(-90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 3:
+                            face.style.transform = 'rotateY(90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 4:
+                            face.style.transform = 'rotateX(90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 5:
+                            face.style.transform = 'rotateX(-90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                    }
+                });
+                // add shading (blue shades)
+                faces[0].style.background = 'url("KaiFace.png")'; // front
+                faces[0].style.backgroundSize = 'cover';
+                faces[1].style.background = 'rgba(0, 0, 139, 0.8)'; // back
+                faces[2].style.background = 'rgb(9 9 249 / 80%)'; // left
+                faces[3].style.background = 'rgba(65, 105, 225, 0.8)'; // right
+                faces[4].style.background = 'rgba(30, 144, 255, 0.8)'; // top
+                faces[5].style.background = 'rgba(70, 130, 180, 0.8)'; // bottom
+
+                const style = document.createElement('style');
+                // rotate slightly to the left and right and up and down
+                style.innerHTML = `
+        @keyframes idleCube {
+            0% {
+                transform: rotateX(-20deg) rotateY(40deg);
+            }
+            50% {
+                transform: rotateX(-15deg) rotateY(35deg);
+            }
+            100% {
+                transform: rotateX(-20deg) rotateY(40deg);
+            }
+        }
+    `;
+                document.head.appendChild(style);
+
+                // create 3d cube2
+                const cube2 = document.querySelector('.cube2');
+                cube2.style.position = 'absolute';
+                cube2.style.width = size + 'px';
+                cube2.style.height = size + 'px';
+                cube2.style.transformStyle = 'preserve-3d';
+                cube2.style.animation = 'idleCube 5s linear infinite';
+                cube2.style.perspective = '800px';
+                cube2.style.willChange = 'transform';
+                const faces2 = cube2.querySelectorAll('.face');
+                faces2.forEach((face, index) => {
+                    face.style.position = 'absolute';
+                    face.style.width = size + 'px';
+                    face.style.height = size + 'px';
+                    face.style.background = `orange`;
+                    face.style.backfaceVisibility = 'hidden';
+                    switch (index) {
+                        case 0:
+                            face.style.transform = 'translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 1:
+                            face.style.transform = 'rotateY(180deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 2:
+                            face.style.transform = 'rotateY(-90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 3:
+                            face.style.transform = 'rotateY(90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 4:
+                            face.style.transform = 'rotateX(90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 5:
+                            face.style.transform = 'rotateX(-90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                    }
+                });
+                // add shading (orange shades)
+                faces2[0].style.background = 'url("AlbertFace.png")'; // front
+                faces2[0].style.backgroundSize = 'cover';
+                faces2[1].style.background = 'rgba(139, 69, 19, 0.8)'; // back
+                faces2[2].style.background = 'rgb(241 125 11 / 80%)'; // left
+                faces2[3].style.background = 'rgba(255, 140, 0, 0.8)'; // right
+                faces2[4].style.background = 'rgb(255 120 0 / 80%)'; // top
+                faces2[5].style.background = 'rgba(210, 105, 30, 0.8)'; // bottom
+
+                // create 3d cube3
+                const cube3 = document.querySelector('.cube3');
+                cube3.style.position = 'absolute';
+                cube3.style.width = size + 'px';
+                cube3.style.height = size + 'px';
+                cube3.style.transformStyle = 'preserve-3d';
+                cube3.style.animation = 'idleCube 5s linear infinite';
+                cube3.style.perspective = '800px';
+                cube3.style.willChange = 'transform';
+                const faces3 = cube3.querySelectorAll('.face');
+                faces3.forEach((face, index) => {
+                    face.style.position = 'absolute';
+                    face.style.width = size + 'px';
+                    face.style.height = size + 'px';
+                    face.style.background = `gray`;
+                    face.style.backfaceVisibility = 'hidden';
+                    switch (index) {
+                        case 0:
+                            face.style.transform = 'translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 1:
+                            face.style.transform = 'rotateY(180deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 2:
+                            face.style.transform = 'rotateY(-90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 3:
+                            face.style.transform = 'rotateY(90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 4:
+                            face.style.transform = 'rotateX(90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                        case 5:
+                            face.style.transform = 'rotateX(-90deg) translateZ(' + (size / 2) + 'px)';
+                            break;
+                    }
+                });
+                // add shading (light purple shades)
+                faces3[0].style.background = 'url("AndrewFace.png")'; // front
+                faces3[0].style.backgroundSize = 'cover';
+                faces3[1].style.background = 'rgba(75, 0, 130, 0.8)'; // back
+                faces3[2].style.background = 'rgb(78 35 165 / 80%)'; // left
+                faces3[3].style.background = 'rgba(138, 43, 226, 0.8)'; // right
+                faces3[4].style.background = 'rgb(92 0 189 / 80%)'; // top
+                faces3[5].style.background = 'rgba(123, 104, 238, 0.8)'; // bottom
+                
+                cube.onclick = cube2.onclick = cube3.onclick = () => {
+                    const cubeUps = {
+                        "albert": 1,
+                        "kai": 5,
+                        "andrew": 8,
+                    }
+                    const cubeElem = document.querySelector(`.cube${active_cube === 1 ? '' : active_cube}`);
+                    const cubeName = active_cube === 1 ? 'kai' : active_cube === 2 ? 'albert' : 'andrew';
+                    if (!data.cubes.includes(cubeName)) {
+                        return; // locked
+                    }
+                    data.clicks += 1;
+                    const baseLevel = data.upgrades.find(u => u.name === 'base_click')?.level || 0;
+                    const multLevel = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
+                    const basePerClick = 1 + baseLevel;
+                    const gain = basePerClick * (cubeUps[cubeName] || 1) * (multLevel + 1);
+                    data.coins += gain;
+                    // make the coins text size up
+                    const coinsElem = document.getElementById('coins');
+                    coinsElem.style.transition = 'none';
+                    coinsElem.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        coinsElem.style.transition = 'transform 0.2s';
+                        coinsElem.style.transform = 'scale(1)';
+                    }, 50);
+                    // make the clicks text size up
+                    const clicksElem = document.getElementById('clicks');
+                    clicksElem.style.transition = 'none';
+                    clicksElem.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        clicksElem.style.transition = 'transform 0.2s';
+                        clicksElem.style.transform = 'scale(1)';
+                    }, 50);
+                    // flash the cube
+                    for (const face of cubeElem.querySelectorAll('.face')) {
+                        face.style.filter = 'brightness(150%)';
+                        // spawn text showing how much coins were gained
+                        const text = document.createElement('div');
+                        text.style.position = 'absolute';
+                        text.style.left = (window.innerWidth / 2) + 'px';
+                        text.style.top = (window.innerHeight / 2) + 'px';
+                        text.style.color = 'yellow';
+                        text.style.fontFamily = 'Arial, sans-serif';
+                        text.style.fontSize = '20px';
+                        text.style.textShadow = '2px 2px 2px black';
+                        text.style.pointerEvents = 'none';
+                        text.innerHTML = `+${gain} coins`;
+                        // minimum: -2 maximum: 2
+                        text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
+                        document.body.appendChild(text);
+                        let textY = window.innerHeight / 2;
+                        function animateText() {
+                            if (textY < -20) {
+                                text.remove();
+                                return;
+                            }
+                            // fade out
+                            text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
+                            text.style.top = textY + 'px';
+                            text.style.left = (parseFloat(text.style.left) + parseFloat(text.getAttribute('speedX'))) + 'px';
+                            textY -= 2;
+                            requestAnimationFrame(animateText);
+                        }
+                        animateText();
+                    }
+                    setTimeout(() => {
+                        for (const face of cubeElem.querySelectorAll('.face')) {
+                            face.style.filter = 'none';
+                        }
+                    }, 100);
+                };
+
+                setInterval(() => {
+                    // render shop
+                    const shop = document.querySelector('.shop');
+                    // base click upgrade
+                    const baseClickUpgrade = document.getElementById('base_click_upgrade');
+                    const level = data.upgrades.find(u => u.name === 'base_click')?.level || 0;
+                    baseClickUpgrade.querySelector('.lvl').innerHTML = `Level: ${level}/5`;
+                    const cost = 50 * (level + 1);
+                    baseClickUpgrade.querySelector('h4').innerHTML = `Cost: ${cost} coins`;
+                    const button = baseClickUpgrade.querySelector('button');
+                    if (level >= 5) {
+                        button.disabled = true;
+                        button.innerHTML = 'MAXED';
+                        button.style.backgroundColor = 'gray';
+                    } else if (data.coins >= cost) {
+                        button.disabled = false;
+                        button.style.backgroundColor = 'green';
+                        button.innerHTML = 'Buy';
+                    } else {
+                        button.disabled = true;
+                        button.style.backgroundColor = 'red';
+                        button.innerHTML = 'Buy';
+                    }
+                    button.onclick = () => {
+                        if (data.coins >= cost && level < 5) {
+                            data.coins -= cost;
+                            if (!data.upgrades.find(u => u.name === 'base_click')) {
+                                data.upgrades.push({ name: 'base_click', level: 0 });
+                            }
+                            const upgrade = data.upgrades.find(u => u.name === 'base_click');
+                            upgrade.level += 1;
+                        } else {
+                            // change button color to red briefly
+                            button.style.backgroundColor = 'red';
+                            setTimeout(() => {
+                                button.style.backgroundColor = (level < 5 && data.coins >= cost) ? 'green' : (level >= 5 ? 'gray' : 'red');
+                            }, 200);
+                        }
+                    };
+
+                    // Auto Clicker Upgrade
+                    const autoClickerUpgrade = document.getElementById('auto_clicker_upgrade');
+                    const autoLevel = data.upgrades.find(u => u.name === 'auto_clicker')?.level || 0;
+                    autoClickerUpgrade.querySelector('.lvl').innerHTML = `Level: ${autoLevel}/10`;
+                    const autoCost = 170 * (autoLevel + 1);
+                    autoClickerUpgrade.querySelector('h4').innerHTML = `Cost: ${autoCost} coins`;
+                    const autoButton = autoClickerUpgrade.querySelector('button');
+                    if (autoLevel >= 10) {
+                        autoButton.disabled = true;
+                        autoButton.innerHTML = 'MAXED';
+                        autoButton.style.backgroundColor = 'gray';
+                    } else if (data.coins >= autoCost) {
+                        autoButton.disabled = false;
+                        autoButton.style.backgroundColor = 'green';
+                        autoButton.innerHTML = 'Buy';
+                    } else {
+                        autoButton.disabled = true;
+                        autoButton.style.backgroundColor = 'red';
+                        autoButton.innerHTML = 'Buy';
+                    }
+                    autoButton.onclick = () => {
+                        if (data.coins >= autoCost && autoLevel < 10) {
+                            data.coins -= autoCost;
+                            if (!data.upgrades.find(u => u.name === 'auto_clicker')) {
+                                data.upgrades.push({ name: 'auto_clicker', level: 0 });
+                            }
+                            const upgrade = data.upgrades.find(u => u.name === 'auto_clicker');
+                            upgrade.level += 1;
+                        } else {
+                            // change button color to red briefly
+                            autoButton.style.backgroundColor = 'red';
+                            setTimeout(() => {
+                                autoButton.style.backgroundColor = (autoLevel < 10 && data.coins >= autoCost) ? 'green' : (autoLevel >= 10 ? 'gray' : 'red');
+                            }, 200);
+                        }
+                    };
+                    // Multiplier Upgrade
+                    const multiplierUpgrade = document.getElementById('multiplier_upgrade');
+                    const multLevel = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
+                    multiplierUpgrade.querySelector('.lvl').innerHTML = `Level: ${multLevel}/3`;
+                    const multCost = 1000 * (multLevel + 3);
+                    multiplierUpgrade.querySelector('h4').innerHTML = `Cost: ${multCost} coins`;
+                    const multButton = multiplierUpgrade.querySelector('button');
+                    if (multLevel >= 3) {
+                        multButton.disabled = true;
+                        multButton.innerHTML = 'MAXED';
+                        multButton.style.backgroundColor = 'gray';
+                    } else if (data.coins >= multCost) {
+                        multButton.disabled = false;
+                        multButton.style.backgroundColor = 'green';
+                        multButton.innerHTML = 'Buy';
+                    } else {
+                        multButton.disabled = true;
+                        multButton.style.backgroundColor = 'red';
+                        multButton.innerHTML = 'Buy';
+                    }
+                    multButton.onclick = () => {
+                        if (data.coins >= multCost && multLevel < 3) {
+                            data.coins -= multCost;
+                            if (!data.upgrades.find(u => u.name === 'multiplier')) {
+                                data.upgrades.push({ name: 'multiplier', level: 0 });
+                            }
+                            const upgrade = data.upgrades.find(u => u.name === 'multiplier');
+                            upgrade.level += 1;
+                        } else {
+                            // change button color to red briefly
+                            multButton.style.backgroundColor = 'red';
+                            setTimeout(() => {  
+                                multButton.style.backgroundColor = (multLevel < 3 && data.coins >= multCost) ? 'green' : (multLevel >= 3 ? 'gray' : 'red');
+                            }, 200);
+                        }
+                    };
+                    // Unlock Kai
+                    const unlockKai = document.getElementById('unlock_kai');
+                    const kaiButton = unlockKai.querySelector('button');
+                    const kaiCost = 9000;
+                    if (data.cubes.includes('kai')) {
+                        kaiButton.disabled = true;
+                        kaiButton.innerHTML = 'UNLOCKED';
+                        kaiButton.style.backgroundColor = 'gray';
+                    } else if (data.coins >= kaiCost) {
+                        kaiButton.disabled = false;
+                        kaiButton.style.backgroundColor = 'green';
+                        kaiButton.innerHTML = 'Buy';
+                    } else {
+                        kaiButton.disabled = true;
+                        kaiButton.style.backgroundColor = 'red';
+                        kaiButton.innerHTML = 'Buy';
+                    }
+                    kaiButton.onclick = () => {
+                        if (data.coins >= kaiCost && !data.cubes.includes('kai')) {
+                            data.coins -= kaiCost;
+                            data.cubes.push('kai');
+                        } else {
+                            // change button color to red briefly
+                            kaiButton.style.backgroundColor = 'red';
+                            setTimeout(() => {
+                                kaiButton.style.backgroundColor = data.cubes.includes('kai') ? 'gray' : (data.coins >= kaiCost ? 'green' : 'red');
+                            }, 200);
+                        }
+                    };
+                    // Unlock Andrew
+                    const unlockAndrew = document.getElementById('unlock_andrew');
+                    const andrewButton = unlockAndrew.querySelector('button');
+                    const andrewCost = 25000;
+                    if (data.cubes.includes('andrew')) {
+                        andrewButton.disabled = true;
+                        andrewButton.innerHTML = 'UNLOCKED';
+                        andrewButton.style.backgroundColor = 'gray';
+                    } else if (data.coins >= andrewCost) {
+                        andrewButton.disabled = false;
+                        andrewButton.style.backgroundColor = 'green';
+                        andrewButton.innerHTML = 'Buy';
+                    } else {
+                        andrewButton.disabled = true;
+                        andrewButton.style.backgroundColor = 'red';
+                        andrewButton.innerHTML = 'Buy';
+                    }
+                    andrewButton.onclick = () => {
+                        if (data.coins >= andrewCost && !data.cubes.includes('andrew')) {
+                            data.coins -= andrewCost;
+                            data.cubes.push('andrew');
+                        } else {
+                            // change button color to red briefly
+                            andrewButton.style.backgroundColor = 'red';
+                            setTimeout(() => {
+                                andrewButton.style.backgroundColor = data.cubes.includes('andrew') ? 'gray' : (data.coins >= andrewCost ? 'green' : 'red');
+                            }, 200);
+                        }
+                    };
+                }, 50);
+
+                setInterval(() => {
+                    // auto clicker
+                    const autoClickerLevel = data.upgrades.find(u => u.name === 'auto_clicker')?.level || 0;
+                    data.clicks += autoClickerLevel;
+                    const cubeUps = {
+                        "albert": 1,
+                        "kai": 5,
+                        "andrew": 8,
+                    }
+                    const cubeName = active_cube === 1 ? 'kai' : active_cube === 2 ? 'albert' : 'andrew';
+                    const multLevel2 = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
+                    const gain = autoClickerLevel * (cubeUps[cubeName] || 1) * (multLevel2 + 1);
+                    data.coins += gain;
+                    // make the coins text size up
+                    if (gain > 0) {
+                        const coinsElem = document.getElementById('coins');
+                        coinsElem.style.transition = 'none';
+                        coinsElem.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            coinsElem.style.transition = 'transform 0.2s';
+                            coinsElem.style.transform = 'scale(1)';
+                        }, 50);
+                    }
+                    // make the clicks text size up
+                    if (autoClickerLevel > 0) {
+                        const clicksElem = document.getElementById('clicks');
+                        clicksElem.style.transition = 'none';
+                        clicksElem.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            clicksElem.style.transition = 'transform 0.2s';
+                            clicksElem.style.transform = 'scale(1)';
+                        }, 50);
+                    }
+                    // spawn text showing how much coins were gained
+                    if (gain > 0) {
+                        const text = document.createElement('div');
+                        text.style.position = 'absolute';
+                        text.style.left = (window.innerWidth / 2) + 'px';
+                        text.style.top = (window.innerHeight / 2) + 'px';
+                        text.style.color = 'yellow';
+                        text.style.fontFamily = 'Arial, sans-serif';
+                        text.style.fontSize = '20px';
+                        text.style.textShadow = '2px 2px 2px black';
+                        text.style.pointerEvents = 'none';
+                        text.innerHTML = `+${gain} coins`;
+                        // minimum: -2 maximum: 2
+                        text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
+                        document.body.appendChild(text);
+                        let textY = window.innerHeight / 2;
+                        function animateText() {
+                            if (textY < -20) {
+                                text.remove();
+                                return;
+                            }
+                            // fade out
+                            text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
+                            text.style.top = textY + 'px';
+                            text.style.left = (parseFloat(text.style.left) + parseFloat(text.getAttribute('speedX'))) + 'px';
+                            textY -= 2;
+                            requestAnimationFrame(animateText);
+                        }
+                        animateText();
+                    }
+                    // flash the cube
+                    if (autoClickerLevel > 0) {
+                        const cubeElem = document.querySelector(`.cube${active_cube === 1 ? '' : active_cube}`);
+                        for (const face of cubeElem.querySelectorAll('.face')) {
+                            face.style.filter = 'brightness(150%)';
+                        }
+                        setTimeout(() => {
+                            for (const face of cubeElem.querySelectorAll('.face')) {
+                                face.style.filter = 'none';
+                            }
+                        }, 100);
+                    }
+                }, 1000);
+                
+                setInterval(() => {
+                    // render achievements
+                    const achievementsDiv = document.querySelector('.achievements');
+                    achievementsDiv.innerHTML = '<div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">Achievements</div>';
+                    allAchievements = [
+                        { id: 'first_click', name: 'First Click', description: 'Make your first click.' },
+                        { id: 'hundred_clicks', name: 'Centurion', description: 'Make 100 clicks.' },
+                        { id: 'thousand_clicks', name: 'Millennium', description: 'Make 1,000 clicks.' },
+                        { id: 'ten_thousand_clicks', name: 'Decathousand', description: 'Make 10,000 clicks.' },
+                        { id: 'fifty_thousand_clicks', name: 'Halfway to a Hundred Thousand', description: 'Make 50,000 clicks.' },
+                        { id: 'hundred_thousand_clicks', name: 'Century Maker', description: 'Make 100,000 clicks.' },
+                        { id: 'million_clicks', name: 'Finger Flicker', description: 'Make 1,000,000 clicks.' },
+                        { id: 'first_upgrade', name: 'Getting Upgraded', description: 'Purchase your first upgrade.' },
+                        { id: 'all_upgrades_maxed', name: 'Fully Upgraded', description: 'Max out all upgrades.' },
+                        { id: 'unlock_kai', name: 'Kai >:)', description: 'Unlock the Kai cube.' },
+                        { id: 'unlock_andrew', name: 'Andrew >:3', description: 'Unlock the Andrew cube.' },
+                        { id: "rich", name: 'Rich', description: 'Accumulate 1,000,000 coins.' },
+                        { id: "max_base", name: 'Based!', description: 'Reach Max base clicks.' },
+                        { id: "max_auto", name: 'Passive Income', description: 'Reach Max autoclicker level.' },
+                        { id: "max_mult", name: 'Math', description: 'Reach Max multiplier level.' },
+                    ];
+                    for (const ach of allAchievements) {
+                        const achElem = document.createElement('div');
+                        achElem.style.border = '1px solid white';
+                        achElem.style.padding = '5px';
+                        achElem.style.marginBottom = '10px';
+                        achElem.style.borderRadius = '5px';
+                        if (data.achivements.includes(ach.id)) {
+                            achElem.style.backgroundColor = 'rgba(0, 128, 0, 0.5)';
+                        } else {
+                            achElem.style.backgroundColor = 'rgba(128, 0, 0, 0.5)';
+                        }
+                        const title = document.createElement('h4');
+                        title.innerHTML = ach.name;
+                        const desc = document.createElement('p');
+                        desc.innerHTML = ach.description;
+                        achElem.appendChild(title);
+                        achElem.appendChild(desc);
+                        achievementsDiv.appendChild(achElem);
+                    }
+
+                    // check for achievements
+                    before = data.achivements
+                    if (data.clicks >= 1 && !data.achivements.includes('first_click')) {
+                        data.achivements.push('first_click');
+                    }
+                    if (data.clicks >= 100 && !data.achivements.includes('hundred_clicks')) {
+                        data.achivements.push('hundred_clicks');
+                    }
+                    if (data.clicks >= 1000 && !data.achivements.includes('thousand_clicks')) {
+                        data.achivements.push('thousand_clicks');
+                    }
+                    if (data.clicks >= 10000 && !data.achivements.includes('ten_thousand_clicks')) {
+                        data.achivements.push('ten_thousand_clicks');
+                    }
+                    if (data.clicks >= 50000 && !data.achivements.includes('fifty_thousand_clicks')) {
+                        data.achivements.push('fifty_thousand_clicks');
+                    }
+                    if (data.clicks >= 100000 && !data.achivements.includes('hundred_thousand_clicks')) {
+                        data.achivements.push('hundred_thousand_clicks');
+                    }
+                    if (data.clicks >= 1000000 && !data.achivements.includes('million_clicks')) {
+                        data.achivements.push('million_clicks');
+                    }
+                    if (data.upgrades.length >= 1 && !data.achivements.includes('first_upgrade')) {
+                        data.achivements.push('first_upgrade');
+                    }
+                    const maxedUpgrades = data.upgrades.filter(u => {
+                        if (u.name === 'base_click') return u.level >= 5;
+                        if (u.name === 'auto_clicker') return u.level >= 10;
+                        if (u.name === 'multiplier') return u.level >= 3;
+                        return false;
+                    });
+                    if (maxedUpgrades.length === 3 && !data.achievements.includes('all_upgrades_maxed')) {
+                        data.achievements.push('all_upgrades_maxed');
+                    }
+                    if (data.cubes.includes('kai') && !data.achievements.includes('unlock_kai')) {
+                        data.achievements.push('unlock_kai');
+                    }
+                    if (data.cubes.includes('andrew') && !data.achievements.includes('unlock_andrew')) {
+                        data.achievements.push('unlock_andrew');
+                    }
+                    if (data.coins >= 1000000 && !data.achievements.includes('rich')) {
+                        data.achievements.push('rich');
+                    }
+                    if ((data.upgrades.find(u => u.name === 'base_click')?.level || 0) >= 5 && !data.achievements.includes('max_base')) {
+                        data.achievements.push('max_base');
+                    }
+                    if ((data.upgrades.find(u => u.name === 'auto_clicker')?.level || 0) >= 10 && !data.achievements.includes('max_auto')) {
+                        data.achievements.push('max_auto');
+                    }
+                    if ((data.upgrades.find(u => u.name === 'multiplier')?.level || 0) >= 3 && !data.achievements.includes('max_mult')) {
+                        data.achievements.push('max_mult');
+                    }
+
+                    // notify new achievements
+                    for (const ach of data.achivements) {
+                        if (!before.includes(ach)) {
+                            // new achievement unlocked
+                            const achData = allAchievements.find(a => a.id === ach);
+                            const notification = document.createElement('div');
+                            notification.style.position = 'fixed';
+                            notification.style.bottom = '20px';
+                            notification.style.right = '20px';
+                            notification.style.backgroundColor = 'rgba(0, 128, 0, 0.8)';
+                            notification.style.color = 'white';
+                            notification.style.padding = '10px';
+                            notification.style.borderRadius = '5px';
+                            notification.style.boxShadow = '2px 2px 5px black';
+                            notification.style.fontFamily = 'Arial, sans-serif';
+                            notification.innerHTML = `Achievement Unlocked: ${achData.name}`;
+                            document.body.appendChild(notification);
+                            setTimeout(() => {
+                                notification.remove();
+                            }, 5000);
+                        }
+                    }
+                }, 100);
+
+                document.getElementById('reset').onclick = () => {
+                    if (confirm('Are you sure you want to reset your progress? This cannot be undone.')) {
+                        localStorage.setItem('reset', '');
+                        location.reload();
+                    }
+                }
+            </script>
+</body>
+
+</html>
