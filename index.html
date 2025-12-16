@@ -155,7 +155,7 @@
     <div class="intro"
         style="position: absolute; top: 37.5%; left: 37.5%; color: white; text-shadow: 0 0 5px black; width: 300px; font-family: Arial, sans-serif; background-color: black; padding: 20px; border-radius: 10px; z-index: 1000;">
         <center>
-            <h1>AIW Clicker! <br/>V1.0.0</h1>
+            <h1>AIW Clicker! <br />V1.1.0</h1>
             <h3>Made by Vivid!</h3>
             <p>Loading...</p>
         </center>
@@ -280,7 +280,7 @@
     </div>
     <h1 id="lock">LOCKED</h1>
     <!--the 3d cubes-->
-    <div class="cube">
+    <div class="cube" id="cube">
         <div class="face front"></div>
         <div class="face back"></div>
         <div class="face left"></div>
@@ -289,7 +289,7 @@
         <div class="face bottom"></div>
     </div>
 
-    <div class="cube2">
+    <div class="cube2" id="cube2">
         <div class="face front"></div>
         <div class="face back"></div>
         <div class="face left"></div>
@@ -298,7 +298,7 @@
         <div class="face bottom"></div>
     </div>
 
-    <div class="cube3">
+    <div class="cube3" id="cube3">
         <div class="face front"></div>
         <div class="face back"></div>
         <div class="face left"></div>
@@ -312,7 +312,9 @@
             <button id="right" onclick="if(active_cube < 3) right()">></button>
             <button id="reset">RESET THE GAME</button>
             <script>
-                allAchievements = [
+                let cps = 0;
+
+                let allAchievements = [
                     { id: 'first_click', name: 'First Click', description: 'Make your first click.' },
                     { id: 'hundred_clicks', name: 'Centurion', description: 'Make 100 clicks.' },
                     { id: 'thousand_clicks', name: 'Millennium', description: 'Make 1,000 clicks.' },
@@ -716,6 +718,7 @@
                         animateText();
                         return; // locked
                     }
+                    cps += 1;
                     data.clicks += 1;
                     const baseLevel = data.upgrades.find(u => u.name === 'base_click')?.level || 0;
                     const multLevel = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
@@ -741,8 +744,15 @@
                     // flash the cube
                     for (const face of cubeElem.querySelectorAll('.face')) {
                         face.style.filter = 'brightness(150%)';
-                        // spawn text showing how much coins were gained
+                    }
+                    setTimeout(() => {
+                        for (const face of cubeElem.querySelectorAll('.face')) {
+                            face.style.filter = 'none';
+                        }
+                    }, 100);
+                    // spawn text showing how much coins were gained
                         const text = document.createElement('div');
+                        text.className = 'gained_text';
                         text.style.position = 'absolute';
                         text.style.left = (window.innerWidth / 2) + 'px';
                         text.style.top = (window.innerHeight / 2) + 'px';
@@ -769,13 +779,8 @@
                             requestAnimationFrame(animateText);
                         }
                         animateText();
-                    }
-                    setTimeout(() => {
-                        for (const face of cubeElem.querySelectorAll('.face')) {
-                            face.style.filter = 'none';
-                        }
-                    }, 100);
                 };
+
 
                 setInterval(() => {
                     // render shop
@@ -1281,6 +1286,7 @@
                             }, 50);
                             // spawn text showing how much coins were gained
                             const text = document.createElement('div');
+                            text.style.class = 'gained_text';
                             text.style.position = 'absolute';
                             text.style.left = x + 'px';
                             text.style.top = y + 'px';
@@ -1300,7 +1306,7 @@
                                 // fade out
                                 text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
                                 text.style.top = textY + 'px';
-                                textY -= 2;
+                                textY -= 10;
                                 requestAnimationFrame(animateText);
                             }
                             animateText();
@@ -1322,7 +1328,170 @@
                     const sfx = new Audio('switch.mp3');
                     sfx.play();
                 }
+
+                setInterval(() => {
+                    cps = 0;
+                }, 1000);
+
+                setInterval(() => {
+                    document.getElementById('cps_text').innerHTML = `CPS: ${cps}`;
+                    if (cps > 15) {
+                        data.coins = Math.max(0, data.coins - 4000);
+                        alert("Cheating detected! You have been penalized 4000 coins.")
+                        cps = 0;
+                    }
+                }, 200);
+
+                // create a cps text
+                const cpsText = document.createElement('div');
+                cpsText.id = 'cps_text';
+                cpsText.style.position = 'absolute';
+                cpsText.style.top = '10px';
+                cpsText.style.right = '10px';
+                cpsText.style.color = 'white';
+                cpsText.style.fontFamily = 'Arial, sans-serif';
+                cpsText.style.fontSize = '20px';
+                cpsText.style.textShadow = '2px 2px 2px black';
+                document.body.appendChild(cpsText);
+
+                // allow right mouse button to click the cubes
+                document.getElementById('cube').addEventListener('contextmenu', function (e) {
+                    e.preventDefault();
+                });
+                document.getElementById('cube2').addEventListener('contextmenu', function (e) {
+                    e.preventDefault();
+                });
+                document.getElementById('cube3').addEventListener('contextmenu', function (e) {
+                    e.preventDefault();
+                });
+                document.getElementById('cube').addEventListener('mousedown', function (e) {
+                    if (e.button === 2) {
+                        click();
+                    }
+                });
+                document.getElementById('cube2').addEventListener('mousedown', function (e) {
+                    if (e.button === 2) {
+                        click();
+                    }
+                });
+                document.getElementById('cube3').addEventListener('mousedown', function (e) {
+                    if (e.button === 2) {
+                        click();
+                    }
+                });
+
+                function click() {
+                    const cubeUps = {
+                            "albert": 1,
+                            "kai": 5,
+                            "andrew": 8,
+                        }
+                        // play a click sfx
+                        const clickSound = new Audio('click.mp3');
+                        clickSound.volume = 0.5;
+                        clickSound.play();
+
+                        const cubeElem = document.querySelector(`.cube${active_cube === 1 ? '' : active_cube}`);
+                        const cubeName = active_cube === 1 ? 'kai' : active_cube === 2 ? 'albert' : 'andrew';
+                        if (!data.cubes.includes(cubeName)) {
+                            // show red floating text "LOCKED" that will float and fade out
+                            const text = document.createElement('div');
+                            text.style.position = 'absolute';
+                            text.style.left = (window.innerWidth / 2) + 'px';
+                            text.style.top = (window.innerHeight / 2) + 'px';
+                            text.style.color = 'red';
+                            text.style.fontFamily = 'Arial, sans-serif';
+                            text.style.fontSize = '30px';
+                            text.style.textShadow = '2px 2px 2px black';
+                            text.style.pointerEvents = 'none';
+                            text.innerHTML = `LOCKED`;
+                            text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
+                            document.body.appendChild(text);
+                            let textY = window.innerHeight / 2;
+                            function animateText() {
+                                if (textY < -20) {
+                                    text.remove();
+                                    return;
+                                }
+                                // fade out
+                                text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
+                                text.style.top = textY + 'px';
+                                text.style.left = (parseFloat(text.style.left) + parseFloat(text.getAttribute('speedX'))) + 'px';
+                                textY -= 2;
+                                requestAnimationFrame(animateText);
+                            }
+                            animateText();
+                            return; // locked
+                        }
+                        cps += 1;
+                        data.clicks += 1;
+                        const baseLevel = data.upgrades.find(u => u.name === 'base_click')?.level || 0;
+                        const multLevel = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
+                        const basePerClick = 1 + baseLevel;
+                        const gain = basePerClick * (cubeUps[cubeName] || 1) * (multLevel + 1);
+                        data.coins += gain;
+                        // make the coins text size up
+                        const coinsElem = document.getElementById('coins');
+                        coinsElem.style.transition = 'none';
+                        coinsElem.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            coinsElem.style.transition = 'transform 0.2s';
+                            coinsElem.style.transform = 'scale(1)';
+                        }, 50);
+                        // make the clicks text size up
+                        const clicksElem = document.getElementById('clicks');
+                        clicksElem.style.transition = 'none';
+                        clicksElem.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            clicksElem.style.transition = 'transform 0.2s';
+                            clicksElem.style.transform = 'scale(1)';
+                        }, 50);
+                        // flash the cube
+                        for (const face of cubeElem.querySelectorAll('.face')) {
+                            face.style.filter = 'brightness(150%)';
+                            // spawn text showing how much coins were gained
+                            const text = document.createElement('div');
+                            text.style.position = 'absolute';
+                            text.style.left = (window.innerWidth / 2) + 'px';
+                            text.style.top = (window.innerHeight / 2) + 'px';
+                            text.style.color = 'yellow';
+                            text.style.fontFamily = 'Arial, sans-serif';
+                            text.style.fontSize = '20px';
+                            text.style.textShadow = '2px 2px 2px black';
+                            text.style.pointerEvents = 'none';
+                            text.innerHTML = `+${gain} coins`;
+                            // minimum: -2 maximum: 2
+                            text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
+                            document.body.appendChild(text);
+                            let textY = window.innerHeight / 2;
+                            function animateText() {
+                                if (textY < -20) {
+                                    text.remove();
+                                    return;
+                                }
+                                // fade out
+                                text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
+                                text.style.top = textY + 'px';
+                                text.style.left = (parseFloat(text.style.left) + parseFloat(text.getAttribute('speedX'))) + 'px';
+                                textY -= 2;
+                                requestAnimationFrame(animateText);
+                            }
+                            animateText();
+                        }
+                        setTimeout(() => {
+                            for (const face of cubeElem.querySelectorAll('.face')) {
+                                face.style.filter = 'none';
+                            }
+                        }, 100);
+                }
+
+                setInterval(() => {
+                    // if too much text on screen, remove oldest
+                    const existingTexts = document.querySelectorAll('.gained_text');
+                    if (existingTexts.length > 15) {
+                        existingTexts[0].remove();
+                    }
+                }, 50);
             </script>
 </body>
-
 </html>
