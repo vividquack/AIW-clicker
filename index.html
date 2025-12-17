@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIW Clicker</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BBH+Bogle&display=swap" rel="stylesheet">
@@ -201,6 +202,29 @@
         #tasks:active {
             background-color: darkblue;
         }
+
+        #burdens {
+            position: absolute;
+            top: 5%;
+            color: white;
+            font-family: 'BBH Bogle', cursive;
+            font-size: 20px;
+            text-shadow: 2px 2px 2px black;
+            z-index: 10;
+            background-color: #8B4513;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #burdens:hover {
+            background-color: #A0522D;
+        }
+
+        #burdens:active {
+            background-color: #654321;
+        }
     </style>
 </head>
 
@@ -211,7 +235,7 @@
     <div class="intro"
         style="position: absolute; top: 37.5%; left: 37.5%; color: white; text-shadow: 0 0 5px black; width: 300px; font-family: Arial, sans-serif; background-color: black; padding: 20px; border-radius: 10px; z-index: 1000;">
         <center>
-            <h1>AIW Clicker! <br />V1.1.0</h1>
+            <h1>AIW Clicker! <br />V2.0.0</h1>
             <h3>Made by Vivid!</h3>
             <p>Loading...</p>
         </center>
@@ -297,6 +321,120 @@
                     style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive"
                     ;>Buy</button></center>
         </div>
+        <!-- Cascade Strikes Upgrade -->
+        <div class="upgrade" id="cascade_strikes_upgrade"
+            style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center>
+                <h1>Cascade Strikes</h1>
+            </center>
+            <center>
+                <h4>Cost: 2000 coins</h4>
+            </center>
+            <center>
+                <div class="lvl">Level: 0/5</div>
+            </center>
+            <center>
+                <p>Clicks trigger chain reactions for extra automatic clicks</p>
+            </center>
+            <center><button
+                    style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive"
+                    ;>Buy</button></center>
+        </div>
+        <!-- Smart Investor Upgrade -->
+        <div class="upgrade" id="smart_investor_upgrade"
+            style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center>
+                <h1>Smart Investor</h1>
+            </center>
+            <center>
+                <h4>Cost: 3500 coins</h4>
+            </center>
+            <center>
+                <div class="lvl">Level: 0/3</div>
+            </center>
+            <center>
+                <p>Lowers upgrade costs by 3% per level (3%, 4%, 5%)</p>
+            </center>
+            <center><button
+                    style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive"
+                    ;>Buy</button></center>
+        </div>
+        <!-- Power Amplifier Upgrade -->
+        <div class="upgrade" id="power_amplifier_upgrade"
+            style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center>
+                <h1>Power Amplifier</h1>
+            </center>
+            <center>
+                <h4>Cost: 4500 coins</h4>
+            </center>
+            <center>
+                <div class="lvl">Level: 0/5</div>
+            </center>
+            <center>
+                <p>Makes upgrade effects 2% stronger per level</p>
+            </center>
+            <center><button
+                    style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive"
+                    ;>Buy</button></center>
+        </div>
+        <!-- Click Mastery Upgrade -->
+        <div class="upgrade" id="click_mastery_upgrade"
+            style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center>
+                <h1>Click Mastery</h1>
+            </center>
+            <center>
+                <h4>Cost: 2500 coins</h4>
+            </center>
+            <center>
+                <div class="lvl">Level: 0/4</div>
+            </center>
+            <center>
+                <p>Every 10 clicks, gain bonus coins equal to 50% of your last click</p>
+            </center>
+            <center><button
+                    style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive"
+                    ;>Buy</button></center>
+        </div>
+        <!-- Fortune Boost Upgrade -->
+        <div class="upgrade" id="fortune_boost_upgrade"
+            style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center>
+                <h1>Fortune Boost</h1>
+            </center>
+            <center>
+                <h4>Cost: 6000 coins</h4>
+            </center>
+            <center>
+                <div class="lvl">Level: 0/3</div>
+            </center>
+            <center>
+                <p>Randomly gain 100-500 bonus coins every second (per level)</p>
+            </center>
+            <center><button
+                    style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive"
+                    ;>Buy</button></center>
+        </div>
+        <!-- Efficiency Expert Upgrade -->
+        <div class="upgrade" id="efficiency_expert_upgrade"
+            style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
+            <center>
+                <h1>Efficiency Expert</h1>
+            </center>
+            <center>
+                <h4>Cost: 8000 coins</h4>
+            </center>
+            <center>
+                <div class="lvl">Level: 0/4</div>
+            </center>
+            <center>
+                <p>Reduce cascade strike chance by 1% per level, but gain 2% more coins overall</p>
+            </center>
+            <center><button
+                    style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive"
+                    ;>Buy</button></center>
+        </div>
         <!-- Unlock Kai -->
         <div class="upgrade" id="unlock_kai"
             style="margin-bottom: 10px; border: 1px solid white; padding: 5px; border-radius: 5px;">
@@ -368,28 +506,125 @@
     <button id="right" onclick="if(active_cube < 3) right()">></button>
 
     <button id="tasks">TASKS</button>
+    <button id="burdens">BURDENS</button>
     <button id="reset">RESET THE GAME</button>
     <button id="daily">DAILY REWARD</button>
     <script>
         let cps = 0;
+        let cpsStartTime = null;
+        let wasCPS15 = false;
+        let cascadeTriggersCount = 0;
+        let milestonesReachedNotified = [];
+
+        // Floating text management
+        let floatingTexts = [];
+        const MAX_FLOATING_TEXTS = 22;
+
+        // Function to format numbers with thousands separator
+        const styleInt = (num) => {
+            if (typeof num !== 'number') num = parseFloat(num) || 0;
+            return Math.floor(num).toLocaleString();
+        }
+
+        // Milestone and Burden System
+        const milestones = [
+            { id: 'milestone_1k_coins', name: 'First Burden', coins: 1000, burden: 'Upgrade costs increased by 10%, Coin gains reduced by 5%' },
+            { id: 'milestone_10k_coins', name: 'Second Burden', coins: 10000, burden: 'Upgrade costs increased by 10% (total 20%), Coin gains reduced by 10%, CPS limit lowered to 14' },
+            { id: 'milestone_100k_coins', name: 'Third Burden', coins: 100000, burden: 'Upgrade costs increased by 10% (total 30%), Coin gains reduced by 15%, CPS limit lowered to 10, Auto-clicker efficiency reduced by 5%' },
+            { id: 'milestone_1m_coins', name: 'Fourth Burden', coins: 1000000, burden: 'Upgrade costs increased by 10% (total 40%), Coin gains reduced by 20%, CPS limit lowered to 8, Auto-clicker efficiency reduced by 10%' },
+            { id: 'milestone_10m_coins', name: 'Fifth Burden', coins: 10000000, burden: 'Upgrade costs increased by 10% (total 50%), Coin gains reduced by 30%, CPS limit lowered to 5, Auto-clicker efficiency reduced by 20%' },
+            { id: 'milestone_100m_coins', name: 'Final Burden', coins: 100000000, burden: 'Upgrade costs increased by 10% (total 60%), Coin gains reduced by 50%, CPS limit lowered to 3, Auto-clicker efficiency reduced by 30%, Cascade strike chance halved' },
+        ];
+
+        function getMilestonesReached() {
+            return milestones.filter(m => data.achivements.includes(m.id)).length;
+        }
+
+        function getBurdenMultipliers() {
+            const milestonesReached = getMilestonesReached();
+            return {
+                costMultiplier: 1 + (milestonesReached * 0.10), // 10% per milestone
+                coinReductionPercent: milestonesReached > 0 ? 0.05 * milestonesReached : 0, // 5% per milestone (5%, 10%, 15%, 20%, 30%, 50%)
+                cpsLimit: Math.max(3, 15 - (milestonesReached * 2.4)) // More aggressive CPS limit reduction
+            };
+        }
+
+        function getUpgradeCost(baseCost, discountPercent) {
+            const burden = getBurdenMultipliers();
+            let cost = baseCost * burden.costMultiplier;
+            cost = Math.floor(cost * (1 - discountPercent));
+            return cost;
+        }
+
+        // Function to add floating text with cap management
+        function addFloatingText(textElement, x, y, speedX) {
+            // Add to tracking array
+            floatingTexts.push(textElement);
+            
+            // Remove oldest text if over limit
+            if (floatingTexts.length > MAX_FLOATING_TEXTS) {
+                const oldestText = floatingTexts.shift();
+                if (oldestText && oldestText.parentNode) {
+                    oldestText.remove();
+                }
+            }
+            
+            document.body.appendChild(textElement);
+            let textY = y;
+            
+            function animateText() {
+                if (textY < -20) {
+                    textElement.remove();
+                    floatingTexts = floatingTexts.filter(t => t !== textElement);
+                    return;
+                }
+                // fade out
+                textElement.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
+                textElement.style.top = textY + 'px';
+                textElement.style.left = (parseFloat(textElement.style.left) + speedX) + 'px';
+                textY -= 2;
+                requestAnimationFrame(animateText);
+            }
+            animateText();
+        }
 
         let allAchievements = [
-            { id: 'first_click', name: 'First Click', description: 'Make your first click.' },
-            { id: 'hundred_clicks', name: 'Centurion', description: 'Make 100 clicks.' },
-            { id: 'thousand_clicks', name: 'Millennium', description: 'Make 1,000 clicks.' },
-            { id: 'ten_thousand_clicks', name: 'Decathousand', description: 'Make 10,000 clicks.' },
-            { id: 'fifty_thousand_clicks', name: 'Halfway to a Hundred Thousand', description: 'Make 50,000 clicks.' },
-            { id: 'hundred_thousand_clicks', name: 'Century Maker', description: 'Make 100,000 clicks.' },
-            { id: 'million_clicks', name: 'Finger Flicker', description: 'Make 1,000,000 clicks.' },
-            { id: 'first_upgrade', name: 'Getting Upgraded', description: 'Purchase your first upgrade.' },
-            { id: 'all_upgrades_maxed', name: 'Fully Upgraded', description: 'Max out all upgrades.' },
-            { id: 'unlock_kai', name: 'Kai >:)', description: 'Unlock the Kai cube.' },
-            { id: 'unlock_andrew', name: 'Andrew >:3', description: 'Unlock the Andrew cube.' },
-            { id: "rich", name: 'Rich', description: 'Accumulate 1,000,000 coins.' },
-            { id: "max_base", name: 'Based!', description: 'Reach Max base clicks.' },
-            { id: "max_auto", name: 'Passive Income', description: 'Reach Max autoclicker level.' },
-            { id: "max_mult", name: 'Math', description: 'Reach Max multiplier level.' },
-            { id: "golden_touch", name: 'Golden Touch', description: 'Reach Max golden points level.' },
+            { id: 'first_click', name: 'First Click', description: 'Make your first click.', rarity: 'common' },
+            { id: 'hundred_clicks', name: 'Centurion', description: 'Make 100 clicks.', rarity: 'common' },
+            { id: 'thousand_clicks', name: 'Millennium', description: 'Make 1,000 clicks.', rarity: 'uncommon' },
+            { id: 'ten_thousand_clicks', name: 'Decathousand', description: 'Make 10,000 clicks.', rarity: 'uncommon' },
+            { id: 'fifty_thousand_clicks', name: 'Halfway to a Hundred Thousand', description: 'Make 50,000 clicks.', rarity: 'rare' },
+            { id: 'hundred_thousand_clicks', name: 'Century Maker', description: 'Make 100,000 clicks.', rarity: 'rare' },
+            { id: 'million_clicks', name: 'Finger Flicker', description: 'Make 1,000,000 clicks.', rarity: 'epic' },
+            { id: 'first_upgrade', name: 'Getting Upgraded', description: 'Purchase your first upgrade.', rarity: 'common' },
+            { id: 'all_upgrades_maxed', name: 'Fully Upgraded', description: 'Max out all upgrades.', rarity: 'legendary' },
+            { id: 'unlock_kai', name: 'Kai >:)', description: 'Unlock the Kai cube.', rarity: 'uncommon' },
+            { id: 'unlock_andrew', name: 'Andrew >:3', description: 'Unlock the Andrew cube.', rarity: 'rare' },
+            { id: "rich", name: 'Rich', description: 'Accumulate 1,000,000 coins.', rarity: 'epic' },
+            { id: "max_base", name: 'Based!', description: 'Reach Max base clicks.', rarity: 'uncommon' },
+            { id: "max_auto", name: 'Passive Income', description: 'Reach Max autoclicker level.', rarity: 'rare' },
+            { id: "max_mult", name: 'Math', description: 'Reach Max multiplier level.', rarity: 'rare' },
+            { id: "golden_touch", name: 'Golden Touch', description: 'Reach Max golden points level.', rarity: 'epic' },
+            { id: "perfect_cps", name: 'Perfect CPS', description: 'Reach exactly 15 CPS for 0.3 seconds.', rarity: 'legendary' },
+            { id: "first_cascade", name: 'Chain Reaction', description: 'Trigger your first cascade strike.', rarity: 'common' },
+            { id: "cascade_master", name: 'Cascade Master', description: 'Trigger 50 cascade strikes.', rarity: 'uncommon' },
+            { id: "cascade_legend", name: 'Cascade Legend', description: 'Trigger 250 cascade strikes.', rarity: 'rare' },
+            { id: "max_cascade", name: 'Fully Cascading', description: 'Reach Max cascade strikes level.', rarity: 'epic' },
+            // Milestones
+            { id: 'milestone_1k_coins', name: 'First Burden', description: 'Accumulate 1,000 coins (Unlocks First Burden)', rarity: 'rare' },
+            { id: 'milestone_10k_coins', name: 'Second Burden', description: 'Accumulate 10,000 coins (Unlocks Second Burden)', rarity: 'rare' },
+            { id: 'milestone_100k_coins', name: 'Third Burden', description: 'Accumulate 100,000 coins (Unlocks Third Burden)', rarity: 'epic' },
+            { id: 'milestone_1m_coins', name: 'Fourth Burden', description: 'Accumulate 1,000,000 coins (Unlocks Fourth Burden)', rarity: 'epic' },
+            { id: 'milestone_10m_coins', name: 'Fifth Burden', description: 'Accumulate 10,000,000 coins (Unlocks Fifth Burden)', rarity: 'legendary' },
+            { id: 'milestone_100m_coins', name: 'Final Burden', description: 'Accumulate 100,000,000 coins (Unlocks Final Burden)', rarity: 'legendary' },
+            // The End
+            { id: 'the_end', name: 'The End', description: 'Unlock and max out everything in the game.', rarity: 'legendary' },
+            { id: 'golden_touch_max', name: 'Golden Touch Master', description: 'Reach Max golden touch level.', rarity: 'epic' },
+            { id: 'click_mastery_max', name: 'Mastery Master', description: 'Reach Max click mastery level.', rarity: 'epic' },
+            { id: 'fortune_boost_max', name: 'Fortune Master', description: 'Reach Max fortune boost level.', rarity: 'epic' },
+            { id: 'efficiency_expert_max', name: 'Efficiency Master', description: 'Reach Max efficiency expert level.', rarity: 'epic' },
+            { id: 'smart_investor_max', name: 'Investor Master', description: 'Reach Max smart investor level.', rarity: 'epic' },
+            { id: 'power_amplifier_max', name: 'Power Master', description: 'Reach Max power amplifier level.', rarity: 'epic' },
         ];
 
         if (localStorage.getItem('reset') !== null) {
@@ -421,8 +656,8 @@
             console.error('Failed to load data:', e);
         }
         setInterval(() => {
-            document.getElementById('coins').innerHTML = `COINS: <color style="color: yellow;">${data.coins}</color>`;
-            document.getElementById('clicks').innerHTML = `CLICKS: <color style="color: yellow;">${data.clicks}</color>`;
+            document.getElementById('coins').innerHTML = `COINS: <span style="color: yellow;">${Math.floor(data.coins).toLocaleString()}</span>`;
+            document.getElementById('clicks').innerHTML = `CLICKS: <span style="color: yellow;">${data.clicks.toLocaleString()}</span>`;
         }, 100);
         setInterval(() => {
             // save data every 1 seconds
@@ -438,7 +673,7 @@
             // make it say "Press this button to enable sound."
             const intro = document.querySelector('.intro');
             intro.innerHTML = `<center>
-        <h1>AIW Clicker!<br/>V1.1.0</h1>
+        <h1>AIW Clicker!<br/>V2.0.0</h1>
         <h3>Made by Vivid!</h3>
         <p>Press this button to enable sound.</p>
         <button id="enableSoundButton" style="font-size:23px; width: 50%; background-color: green; border:0; border-radius: 5px; color: white; font-family: 'BBH Bogle', cursive;">Enable Sound</button>
@@ -781,9 +1016,44 @@
             data.clicks += 1;
             const baseLevel = data.upgrades.find(u => u.name === 'base_click')?.level || 0;
             const multLevel = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
-            const basePerClick = 1 + baseLevel;
-            const gain = basePerClick * (cubeUps[cubeName] || 1) * (multLevel + 1);
+            const cascadeLevel = data.upgrades.find(u => u.name === 'cascade_strikes')?.level || 0;
+            const ampLevel = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const efficiencyLevel = data.upgrades.find(u => u.name === 'efficiency_expert')?.level || 0;
+            const amplifierBonus = 1 + (0.02 * ampLevel); // 2% per level
+            const efficiencyBonus = 1 + (0.02 * efficiencyLevel); // 2% more coins overall
+            const basePerClick = (1 + baseLevel) * amplifierBonus;
+            let gain = basePerClick * (cubeUps[cubeName] || 1) * (multLevel + 1) * efficiencyBonus;
+            
+            // Apply burden penalty to coin gains
+            const burden = getBurdenMultipliers();
+            gain = gain * (1 - burden.coinReductionPercent);
+            
             data.coins += gain;
+            
+            // Click Mastery effect - every 10 clicks gain bonus
+            if (!data.clicksSinceBonus) data.clicksSinceBonus = 0;
+            data.clicksSinceBonus += 1;
+            const masteryLevel = data.upgrades.find(u => u.name === 'click_mastery')?.level || 0;
+            if (masteryLevel > 0 && data.clicksSinceBonus >= 10) {
+                const masteryBonus = gain * 0.5 * masteryLevel;
+                data.coins += masteryBonus;
+                data.clicksSinceBonus = 0;
+            }
+            
+            // Cascade Strikes effect - chance of extra clicks (reduced by Efficiency Expert)
+            if (cascadeLevel > 0) {
+                const efficiencyReduction = efficiencyLevel * 0.01; // 1% reduction per level
+                const cascadeChance = (0.15 * cascadeLevel) - efficiencyReduction; // 15% per level, max 75%, reduced by efficiency
+                if (Math.random() < Math.max(0, cascadeChance)) {
+                    cascadeTriggersCount += 1;
+                    const cascadeClicks = Math.floor((1 + cascadeLevel * 0.5) * amplifierBonus);
+                    for (let i = 0; i < cascadeClicks; i++) {
+                        data.clicks += 1;
+                        const cascadeGain = gain * 0.5; // 50% of normal click
+                        data.coins += cascadeGain;
+                    }
+                }
+            }
             // make the coins text size up
             const coinsElem = document.getElementById('coins');
             coinsElem.style.transition = 'none';
@@ -820,24 +1090,9 @@
             text.style.fontSize = '20px';
             text.style.textShadow = '2px 2px 2px black';
             text.style.pointerEvents = 'none';
-            text.innerHTML = `+${gain} coins`;
-            // minimum: -2 maximum: 2
-            text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
-            document.body.appendChild(text);
-            let textY = window.innerHeight / 2;
-            function animateText() {
-                if (textY < -20) {
-                    text.remove();
-                    return;
-                }
-                // fade out
-                text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
-                text.style.top = textY + 'px';
-                text.style.left = (parseFloat(text.style.left) + parseFloat(text.getAttribute('speedX'))) + 'px';
-                textY -= 2;
-                requestAnimationFrame(animateText);
-            }
-            animateText();
+            text.innerHTML = `+${styleInt(gain)} coins`;
+            const speedX = (Math.random() - 0.5) * 4;
+            addFloatingText(text, window.innerWidth / 2, window.innerHeight / 2, speedX);
         };
 
 
@@ -848,8 +1103,11 @@
             const baseClickUpgrade = document.getElementById('base_click_upgrade');
             const level = data.upgrades.find(u => u.name === 'base_click')?.level || 0;
             baseClickUpgrade.querySelector('.lvl').innerHTML = `Level: ${level}/5`;
-            const cost = 50 * (level + 1);
-            baseClickUpgrade.querySelector('h4').innerHTML = `Cost: ${cost} coins`;
+            const investorLevel = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDisc = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercent = (0.03 + (investorLevel * 0.01)) + (0.02 * ampLevelDisc);
+            let cost = getUpgradeCost(50 * (level + 1), discountPercent);
+            baseClickUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(cost)} coins`;
             const button = baseClickUpgrade.querySelector('button');
             if (level >= 5) {
                 button.disabled = true;
@@ -889,8 +1147,11 @@
             const autoClickerUpgrade = document.getElementById('auto_clicker_upgrade');
             const autoLevel = data.upgrades.find(u => u.name === 'auto_clicker')?.level || 0;
             autoClickerUpgrade.querySelector('.lvl').innerHTML = `Level: ${autoLevel}/10`;
-            const autoCost = 170 * (autoLevel + 1);
-            autoClickerUpgrade.querySelector('h4').innerHTML = `Cost: ${autoCost} coins`;
+            const investorLevel2 = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDisc2 = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercent2 = (0.03 + (investorLevel2 * 0.01)) + (0.02 * ampLevelDisc2);
+            let autoCost = getUpgradeCost(170 * (autoLevel + 1), discountPercent2);
+            autoClickerUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(autoCost)} coins`;
             const autoButton = autoClickerUpgrade.querySelector('button');
             if (autoLevel >= 10) {
                 autoButton.disabled = true;
@@ -929,8 +1190,11 @@
             const multiplierUpgrade = document.getElementById('multiplier_upgrade');
             const multLevel = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
             multiplierUpgrade.querySelector('.lvl').innerHTML = `Level: ${multLevel}/3`;
-            const multCost = 1000 * (multLevel + 3);
-            multiplierUpgrade.querySelector('h4').innerHTML = `Cost: ${multCost} coins`;
+            const investorLevel3 = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDisc3 = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercent3 = (0.03 + (investorLevel3 * 0.01)) + (0.02 * ampLevelDisc3);
+            let multCost = getUpgradeCost(1000 * (multLevel + 3), discountPercent3);
+            multiplierUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(multCost)} coins`;
             const multButton = multiplierUpgrade.querySelector('button');
             if (multLevel >= 3) {
                 multButton.disabled = true;
@@ -969,7 +1233,10 @@
             // Unlock Kai
             const unlockKai = document.getElementById('unlock_kai');
             const kaiButton = unlockKai.querySelector('button');
-            const kaiCost = 9000;
+            const investorLevelKai = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscKai = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentKai = (0.03 + (investorLevelKai * 0.01)) + (0.02 * ampLevelDiscKai);
+            let kaiCost = getUpgradeCost(9000, discountPercentKai);
             if (data.cubes.includes('kai')) {
                 kaiButton.disabled = true;
                 kaiButton.innerHTML = 'UNLOCKED';
@@ -1002,7 +1269,10 @@
             // Unlock Andrew
             const unlockAndrew = document.getElementById('unlock_andrew');
             const andrewButton = unlockAndrew.querySelector('button');
-            const andrewCost = 25000;
+            const investorLevelAndrew = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscAndrew = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentAndrew = (0.03 + (investorLevelAndrew * 0.01)) + (0.02 * ampLevelDiscAndrew);
+            let andrewCost = getUpgradeCost(25000, discountPercentAndrew);
             if (data.cubes.includes('andrew')) {
                 andrewButton.disabled = true;
                 andrewButton.innerHTML = 'UNLOCKED';
@@ -1037,8 +1307,11 @@
             const goldenTouchUpgrade = document.getElementById('golden_touch_upgrade');
             const goldLevel = data.upgrades.find(u => u.name === 'golden_touch')?.level || 0;
             goldenTouchUpgrade.querySelector('.lvl').innerHTML = `Level: ${goldLevel}/4`;
-            const goldCost = 5000 * (goldLevel + 2);
-            goldenTouchUpgrade.querySelector('h4').innerHTML = `Cost: ${goldCost} coins`;
+            const investorLevelGold = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscGold = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentGold = (0.03 + (investorLevelGold * 0.01)) + (0.02 * ampLevelDiscGold);
+            let goldCost = getUpgradeCost(5000 * (goldLevel + 2), discountPercentGold);
+            goldenTouchUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(goldCost)} coins`;
             const goldButton = goldenTouchUpgrade.querySelector('button');
             if (goldLevel >= 4) {
                 goldButton.disabled = true;
@@ -1073,10 +1346,270 @@
                     }, 200);
                 }
             };
+
+            // Cascade Strikes Upgrade
+            const cascadeStrikesUpgrade = document.getElementById('cascade_strikes_upgrade');
+            const cascadeLevel = data.upgrades.find(u => u.name === 'cascade_strikes')?.level || 0;
+            cascadeStrikesUpgrade.querySelector('.lvl').innerHTML = `Level: ${cascadeLevel}/5`;
+            const investorLevel5 = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDisc5 = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercent5 = (0.03 + (investorLevel5 * 0.01)) + (0.02 * ampLevelDisc5);
+            let cascadeCost = getUpgradeCost(2000 * (cascadeLevel + 1), discountPercent5);
+            cascadeStrikesUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(cascadeCost)} coins`;
+            const cascadeButton = cascadeStrikesUpgrade.querySelector('button');
+            if (cascadeLevel >= 5) {
+                cascadeButton.disabled = true;
+                cascadeButton.innerHTML = 'MAXED';
+                cascadeButton.style.backgroundColor = 'gray';
+            } else if (data.coins >= cascadeCost) {
+                cascadeButton.disabled = false;
+                cascadeButton.style.backgroundColor = 'green';
+                cascadeButton.innerHTML = 'Buy';
+            } else {
+                cascadeButton.disabled = true;
+                cascadeButton.style.backgroundColor = 'red';
+                cascadeButton.innerHTML = 'Buy';
+            }
+            cascadeButton.onclick = () => {
+                if (data.coins >= cascadeCost && cascadeLevel < 5) {
+                    data.coins -= cascadeCost;
+                    if (!data.upgrades.find(u => u.name === 'cascade_strikes')) {
+                        data.upgrades.push({ name: 'cascade_strikes', level: 0 });
+                    }
+                    const upgrade = data.upgrades.find(u => u.name === 'cascade_strikes');
+                    upgrade.level += 1;
+                    // play sfx
+                    const sfx = new Audio('buy.mp3');
+                    sfx.volume = 0.4;
+                    sfx.play();
+                } else {
+                    // change button color to red briefly
+                    cascadeButton.style.backgroundColor = 'red';
+                    setTimeout(() => {
+                        cascadeButton.style.backgroundColor = (cascadeLevel < 5 && data.coins >= cascadeCost) ? 'green' : (cascadeLevel >= 5 ? 'gray' : 'red');
+                    }, 200);
+                }
+            };
+
+            // Smart Investor Upgrade
+            const smartInvestorUpgrade = document.getElementById('smart_investor_upgrade');
+            const smartLevel = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            smartInvestorUpgrade.querySelector('.lvl').innerHTML = `Level: ${smartLevel}/3`;
+            const investorLevelSmart = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscSmart = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentSmart = (0.03 + (investorLevelSmart * 0.01)) + (0.02 * ampLevelDiscSmart);
+            let smartCost = getUpgradeCost(3500 * (smartLevel + 1), discountPercentSmart);
+            smartInvestorUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(smartCost)} coins`;
+            const smartButton = smartInvestorUpgrade.querySelector('button');
+            if (smartLevel >= 3) {
+                smartButton.disabled = true;
+                smartButton.innerHTML = 'MAXED';
+                smartButton.style.backgroundColor = 'gray';
+            } else if (data.coins >= smartCost) {
+                smartButton.disabled = false;
+                smartButton.style.backgroundColor = 'green';
+                smartButton.innerHTML = 'Buy';
+            } else {
+                smartButton.disabled = true;
+                smartButton.style.backgroundColor = 'red';
+                smartButton.innerHTML = 'Buy';
+            }
+            smartButton.onclick = () => {
+                if (data.coins >= smartCost && smartLevel < 3) {
+                    data.coins -= smartCost;
+                    if (!data.upgrades.find(u => u.name === 'smart_investor')) {
+                        data.upgrades.push({ name: 'smart_investor', level: 0 });
+                    }
+                    const upgrade = data.upgrades.find(u => u.name === 'smart_investor');
+                    upgrade.level += 1;
+                    // play sfx
+                    const sfx = new Audio('buy.mp3');
+                    sfx.volume = 0.4;
+                    sfx.play();
+                } else {
+                    // change button color to red briefly
+                    smartButton.style.backgroundColor = 'red';
+                    setTimeout(() => {
+                        smartButton.style.backgroundColor = (smartLevel < 3 && data.coins >= smartCost) ? 'green' : (smartLevel >= 3 ? 'gray' : 'red');
+                    }, 200);
+                }
+            };
+
+            // Power Amplifier Upgrade
+            const powerAmplifierUpgrade = document.getElementById('power_amplifier_upgrade');
+            const ampLevel = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            powerAmplifierUpgrade.querySelector('.lvl').innerHTML = `Level: ${ampLevel}/5`;
+            const investorLevelAmp = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscAmp = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentAmp = (0.03 + (investorLevelAmp * 0.01)) + (0.02 * ampLevelDiscAmp);
+            let ampCost = getUpgradeCost(4500 * (ampLevel + 1), discountPercentAmp);
+            powerAmplifierUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(ampCost)} coins`;
+            const ampButton = powerAmplifierUpgrade.querySelector('button');
+            if (ampLevel >= 5) {
+                ampButton.disabled = true;
+                ampButton.innerHTML = 'MAXED';
+                ampButton.style.backgroundColor = 'gray';
+            } else if (data.coins >= ampCost) {
+                ampButton.disabled = false;
+                ampButton.style.backgroundColor = 'green';
+                ampButton.innerHTML = 'Buy';
+            } else {
+                ampButton.disabled = true;
+                ampButton.style.backgroundColor = 'red';
+                ampButton.innerHTML = 'Buy';
+            }
+            ampButton.onclick = () => {
+                if (data.coins >= ampCost && ampLevel < 5) {
+                    data.coins -= ampCost;
+                    if (!data.upgrades.find(u => u.name === 'power_amplifier')) {
+                        data.upgrades.push({ name: 'power_amplifier', level: 0 });
+                    }
+                    const upgrade = data.upgrades.find(u => u.name === 'power_amplifier');
+                    upgrade.level += 1;
+                    // play sfx
+                    const sfx = new Audio('buy.mp3');
+                    sfx.volume = 0.4;
+                    sfx.play();
+                } else {
+                    // change button color to red briefly
+                    ampButton.style.backgroundColor = 'red';
+                    setTimeout(() => {
+                        ampButton.style.backgroundColor = (ampLevel < 5 && data.coins >= ampCost) ? 'green' : (ampLevel >= 5 ? 'gray' : 'red');
+                    }, 200);
+                }
+            };
+
+            // Click Mastery Upgrade
+            const clickMasteryUpgrade = document.getElementById('click_mastery_upgrade');
+            const masteryLevel = data.upgrades.find(u => u.name === 'click_mastery')?.level || 0;
+            clickMasteryUpgrade.querySelector('.lvl').innerHTML = `Level: ${masteryLevel}/4`;
+            const investorLevelMastery = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscMastery = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentMastery = (0.03 + (investorLevelMastery * 0.01)) + (0.02 * ampLevelDiscMastery);
+            let masteryCost = getUpgradeCost(2500 * (masteryLevel + 1), discountPercentMastery);
+            clickMasteryUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(masteryCost)} coins`;
+            const masteryButton = clickMasteryUpgrade.querySelector('button');
+            if (masteryLevel >= 4) {
+                masteryButton.disabled = true;
+                masteryButton.innerHTML = 'MAXED';
+                masteryButton.style.backgroundColor = 'gray';
+            } else if (data.coins >= masteryCost) {
+                masteryButton.disabled = false;
+                masteryButton.style.backgroundColor = 'green';
+                masteryButton.innerHTML = 'Buy';
+            } else {
+                masteryButton.disabled = true;
+                masteryButton.style.backgroundColor = 'red';
+                masteryButton.innerHTML = 'Buy';
+            }
+            masteryButton.onclick = () => {
+                if (data.coins >= masteryCost && masteryLevel < 4) {
+                    data.coins -= masteryCost;
+                    if (!data.upgrades.find(u => u.name === 'click_mastery')) {
+                        data.upgrades.push({ name: 'click_mastery', level: 0 });
+                    }
+                    const upgrade = data.upgrades.find(u => u.name === 'click_mastery');
+                    upgrade.level += 1;
+                    const sfx = new Audio('buy.mp3');
+                    sfx.volume = 0.4;
+                    sfx.play();
+                } else {
+                    masteryButton.style.backgroundColor = 'red';
+                    setTimeout(() => {
+                        masteryButton.style.backgroundColor = (masteryLevel < 4 && data.coins >= masteryCost) ? 'green' : (masteryLevel >= 4 ? 'gray' : 'red');
+                    }, 200);
+                }
+            };
+
+            // Fortune Boost Upgrade
+            const fortuneBoostUpgrade = document.getElementById('fortune_boost_upgrade');
+            const fortuneLevel = data.upgrades.find(u => u.name === 'fortune_boost')?.level || 0;
+            fortuneBoostUpgrade.querySelector('.lvl').innerHTML = `Level: ${fortuneLevel}/3`;
+            const investorLevelFortune = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscFortune = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentFortune = (0.03 + (investorLevelFortune * 0.01)) + (0.02 * ampLevelDiscFortune);
+            let fortuneCost = getUpgradeCost(6000 * (fortuneLevel + 1), discountPercentFortune);
+            fortuneBoostUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(fortuneCost)} coins`;
+            const fortuneButton = fortuneBoostUpgrade.querySelector('button');
+            if (fortuneLevel >= 3) {
+                fortuneButton.disabled = true;
+                fortuneButton.innerHTML = 'MAXED';
+                fortuneButton.style.backgroundColor = 'gray';
+            } else if (data.coins >= fortuneCost) {
+                fortuneButton.disabled = false;
+                fortuneButton.style.backgroundColor = 'green';
+                fortuneButton.innerHTML = 'Buy';
+            } else {
+                fortuneButton.disabled = true;
+                fortuneButton.style.backgroundColor = 'red';
+                fortuneButton.innerHTML = 'Buy';
+            }
+            fortuneButton.onclick = () => {
+                if (data.coins >= fortuneCost && fortuneLevel < 3) {
+                    data.coins -= fortuneCost;
+                    if (!data.upgrades.find(u => u.name === 'fortune_boost')) {
+                        data.upgrades.push({ name: 'fortune_boost', level: 0 });
+                    }
+                    const upgrade = data.upgrades.find(u => u.name === 'fortune_boost');
+                    upgrade.level += 1;
+                    const sfx = new Audio('buy.mp3');
+                    sfx.volume = 0.4;
+                    sfx.play();
+                } else {
+                    fortuneButton.style.backgroundColor = 'red';
+                    setTimeout(() => {
+                        fortuneButton.style.backgroundColor = (fortuneLevel < 3 && data.coins >= fortuneCost) ? 'green' : (fortuneLevel >= 3 ? 'gray' : 'red');
+                    }, 200);
+                }
+            };
+
+            // Efficiency Expert Upgrade
+            const efficiencyExpertUpgrade = document.getElementById('efficiency_expert_upgrade');
+            const efficiencyLevel = data.upgrades.find(u => u.name === 'efficiency_expert')?.level || 0;
+            efficiencyExpertUpgrade.querySelector('.lvl').innerHTML = `Level: ${efficiencyLevel}/4`;
+            const investorLevelEfficiency = data.upgrades.find(u => u.name === 'smart_investor')?.level || 0;
+            const ampLevelDiscEfficiency = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const discountPercentEfficiency = (0.03 + (investorLevelEfficiency * 0.01)) + (0.02 * ampLevelDiscEfficiency);
+            let efficiencyCost = getUpgradeCost(8000 * (efficiencyLevel + 1), discountPercentEfficiency);
+            efficiencyExpertUpgrade.querySelector('h4').innerHTML = `Cost: ${styleInt(efficiencyCost)} coins`;
+            const efficiencyButton = efficiencyExpertUpgrade.querySelector('button');
+            if (efficiencyLevel >= 4) {
+                efficiencyButton.disabled = true;
+                efficiencyButton.innerHTML = 'MAXED';
+                efficiencyButton.style.backgroundColor = 'gray';
+            } else if (data.coins >= efficiencyCost) {
+                efficiencyButton.disabled = false;
+                efficiencyButton.style.backgroundColor = 'green';
+                efficiencyButton.innerHTML = 'Buy';
+            } else {
+                efficiencyButton.disabled = true;
+                efficiencyButton.style.backgroundColor = 'red';
+                efficiencyButton.innerHTML = 'Buy';
+            }
+            efficiencyButton.onclick = () => {
+                if (data.coins >= efficiencyCost && efficiencyLevel < 4) {
+                    data.coins -= efficiencyCost;
+                    if (!data.upgrades.find(u => u.name === 'efficiency_expert')) {
+                        data.upgrades.push({ name: 'efficiency_expert', level: 0 });
+                    }
+                    const upgrade = data.upgrades.find(u => u.name === 'efficiency_expert');
+                    upgrade.level += 1;
+                    const sfx = new Audio('buy.mp3');
+                    sfx.volume = 0.4;
+                    sfx.play();
+                } else {
+                    efficiencyButton.style.backgroundColor = 'red';
+                    setTimeout(() => {
+                        efficiencyButton.style.backgroundColor = (efficiencyLevel < 4 && data.coins >= efficiencyCost) ? 'green' : (efficiencyLevel >= 4 ? 'gray' : 'red');
+                    }, 200);
+                }
+            };
         }, 50);
 
         setInterval(() => {
             // auto clicker
+            const cubeName = active_cube === 1 ? 'kai' : active_cube === 2 ? 'albert' : 'andrew';
+            if (!data.cubes.includes(cubeName)) return;
             const autoClickerLevel = data.upgrades.find(u => u.name === 'auto_clicker')?.level || 0;
             data.clicks += autoClickerLevel;
             const cubeUps = {
@@ -1084,10 +1617,27 @@
                 "kai": 5,
                 "andrew": 8,
             }
-            const cubeName = active_cube === 1 ? 'kai' : active_cube === 2 ? 'albert' : 'andrew';
             const multLevel2 = data.upgrades.find(u => u.name === 'multiplier')?.level || 0;
-            const gain = autoClickerLevel * (cubeUps[cubeName] || 1) * (multLevel2 + 1);
+            const ampLevel2 = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+            const efficiencyLevel2 = data.upgrades.find(u => u.name === 'efficiency_expert')?.level || 0;
+            const amplifierBonus2 = 1 + (0.02 * ampLevel2);
+            const efficiencyBonus2 = 1 + (0.02 * efficiencyLevel2);
+            let gain = autoClickerLevel * (cubeUps[cubeName] || 1) * (multLevel2 + 1) * amplifierBonus2 * efficiencyBonus2;
+            
+            // Apply burden penalty to coin gains
+            const burden2 = getBurdenMultipliers();
+            gain = gain * (1 - burden2.coinReductionPercent);
+            
             data.coins += gain;
+            
+            // Fortune Boost effect - random coins every second
+            const fortuneLevel = data.upgrades.find(u => u.name === 'fortune_boost')?.level || 0;
+            if (fortuneLevel > 0) {
+                for (let i = 0; i < fortuneLevel; i++) {
+                    const fortuneGain = Math.floor(Math.random() * 401 + 100); // 100-500 coins
+                    data.coins += fortuneGain;
+                }
+            }
             // make the coins text size up
             if (gain > 0) {
                 const coinsElem = document.getElementById('coins');
@@ -1119,24 +1669,9 @@
                 text.style.fontSize = '20px';
                 text.style.textShadow = '2px 2px 2px black';
                 text.style.pointerEvents = 'none';
-                text.innerHTML = `+${gain} coins`;
-                // minimum: -2 maximum: 2
-                text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
-                document.body.appendChild(text);
-                let textY = window.innerHeight / 2;
-                function animateText() {
-                    if (textY < -20) {
-                        text.remove();
-                        return;
-                    }
-                    // fade out
-                    text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
-                    text.style.top = textY + 'px';
-                    text.style.left = (parseFloat(text.style.left) + parseFloat(text.getAttribute('speedX'))) + 'px';
-                    textY -= 2;
-                    requestAnimationFrame(animateText);
-                }
-                animateText();
+                text.innerHTML = `+${styleInt(gain)} coins`;
+                const speedX = (Math.random() - 0.5) * 4;
+                addFloatingText(text, window.innerWidth / 2, window.innerHeight / 2, speedX);
             }
             // flash the cube
             if (autoClickerLevel > 0) {
@@ -1150,7 +1685,7 @@
                     }
                 }, 100);
             }
-        }, 1000);
+        }, 300);
 
         setInterval(() => {
             // render achievements
@@ -1167,8 +1702,18 @@
                 } else {
                     achElem.style.backgroundColor = 'rgba(128, 0, 0, 0.5)';
                 }
+                // Set border color based on rarity
+                const rarityColors = {
+                    'common': '#808080',
+                    'uncommon': '#4CAF50',
+                    'rare': '#2196F3',
+                    'epic': '#9C27B0',
+                    'legendary': '#FFD700'
+                };
+                achElem.style.border = `2px solid ${rarityColors[ach.rarity] || '#808080'}`;
                 const title = document.createElement('h4');
-                title.innerHTML = ach.name;
+                title.innerHTML = `${ach.name} [${ach.rarity.toUpperCase()}]`;
+                title.style.color = rarityColors[ach.rarity] || '#808080';
                 const desc = document.createElement('p');
                 desc.innerHTML = ach.description;
                 achElem.appendChild(title);
@@ -1227,6 +1772,116 @@
             }
             if ((data.upgrades.find(u => u.name === 'multiplier')?.level || 0) >= 3 && !data.achivements.includes('max_mult')) {
                 data.achivements.push('max_mult');
+            }
+
+            // Cascade Strikes achievements
+            if (cascadeTriggersCount >= 1 && !data.achivements.includes('first_cascade')) {
+                data.achivements.push('first_cascade');
+            }
+            if (cascadeTriggersCount >= 50 && !data.achivements.includes('cascade_master')) {
+                data.achivements.push('cascade_master');
+            }
+            if (cascadeTriggersCount >= 250 && !data.achivements.includes('cascade_legend')) {
+                data.achivements.push('cascade_legend');
+            }
+            if ((data.upgrades.find(u => u.name === 'cascade_strikes')?.level || 0) >= 5 && !data.achivements.includes('max_cascade')) {
+                data.achivements.push('max_cascade');
+            }
+
+            // Golden Touch, Click Mastery, Fortune Boost, Efficiency Expert, Smart Investor, Power Amplifier maxed achievements
+            if ((data.upgrades.find(u => u.name === 'golden_touch')?.level || 0) >= 4 && !data.achivements.includes('golden_touch_max')) {
+                data.achivements.push('golden_touch_max');
+            }
+            if ((data.upgrades.find(u => u.name === 'click_mastery')?.level || 0) >= 4 && !data.achivements.includes('click_mastery_max')) {
+                data.achivements.push('click_mastery_max');
+            }
+            if ((data.upgrades.find(u => u.name === 'fortune_boost')?.level || 0) >= 3 && !data.achivements.includes('fortune_boost_max')) {
+                data.achivements.push('fortune_boost_max');
+            }
+            if ((data.upgrades.find(u => u.name === 'efficiency_expert')?.level || 0) >= 4 && !data.achivements.includes('efficiency_expert_max')) {
+                data.achivements.push('efficiency_expert_max');
+            }
+            if ((data.upgrades.find(u => u.name === 'smart_investor')?.level || 0) >= 3 && !data.achivements.includes('smart_investor_max')) {
+                data.achivements.push('smart_investor_max');
+            }
+            if ((data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0) >= 5 && !data.achivements.includes('power_amplifier_max')) {
+                data.achivements.push('power_amplifier_max');
+            }
+
+            // Check for "The End" achievement - all upgrades maxed and all cubes unlocked
+            const allUpgradesMaxed = data.upgrades.filter(u => {
+                if (u.name === 'base_click') return u.level >= 5;
+                if (u.name === 'auto_clicker') return u.level >= 10;
+                if (u.name === 'multiplier') return u.level >= 3;
+                if (u.name === 'golden_touch') return u.level >= 4;
+                if (u.name === 'cascade_strikes') return u.level >= 5;
+                if (u.name === 'smart_investor') return u.level >= 3;
+                if (u.name === 'power_amplifier') return u.level >= 5;
+                if (u.name === 'click_mastery') return u.level >= 4;
+                if (u.name === 'fortune_boost') return u.level >= 3;
+                if (u.name === 'efficiency_expert') return u.level >= 4;
+                return false;
+            }).length === 10;
+            const allCubesUnlocked = data.cubes.includes('kai') && data.cubes.includes('andrew') && data.cubes.includes('albert');
+            if (allUpgradesMaxed && allCubesUnlocked && !data.achivements.includes('the_end')) {
+                data.achivements.push('the_end');
+            }
+
+            // Check for milestone achievements and notify player of burdens
+            for (const milestone of milestones) {
+                if (data.coins >= milestone.coins && !data.achivements.includes(milestone.id)) {
+                    data.achivements.push(milestone.id);
+                    if (!milestonesReachedNotified.includes(milestone.id)) {
+                        milestonesReachedNotified.push(milestone.id);
+                        // Show milestone burden notification
+                        const burdenNotif = document.createElement('div');
+                        burdenNotif.style.position = 'absolute';
+                        burdenNotif.style.bottom = '120px';
+                        burdenNotif.style.right = '20px';
+                        burdenNotif.style.backgroundColor = 'rgba(200, 0, 0, 0.95)';
+                        burdenNotif.style.color = 'white';
+                        burdenNotif.style.padding = '15px';
+                        burdenNotif.style.borderRadius = '8px';
+                        burdenNotif.style.boxShadow = '0 0 15px rgba(255, 0, 0, 0.8)';
+                        burdenNotif.style.fontFamily = 'BBH Bogle, cursive';
+                        burdenNotif.style.zIndex = '1000000';
+                        burdenNotif.style.maxWidth = '300px';
+                        burdenNotif.style.border = '2px solid #ff0000';
+                        burdenNotif.style.opacity = '0';
+                        burdenNotif.innerHTML = `<strong>⚠️ ${milestone.name}</strong><br/>${milestone.burden}`;
+                        document.body.appendChild(burdenNotif);
+                        const sfx = new Audio('notify.mp3');
+                        sfx.volume = 0.8;
+                        sfx.play();
+                        // fade in
+                        setTimeout(() => {
+                            burdenNotif.style.transition = 'opacity 0.5s';
+                            burdenNotif.style.opacity = '1';
+                        }, 10);
+                        setTimeout(() => {
+                            burdenNotif.style.transition = 'opacity 0.5s';
+                            burdenNotif.style.opacity = '0';
+                            setTimeout(() => {
+                                burdenNotif.remove();
+                            }, 500);
+                        }, 7000);
+                    }
+                }
+            }
+
+            // Check for perfect CPS achievement (exactly 15 CPS for 0.3 seconds)
+            if (cps === 15) {
+                if (!wasCPS15) {
+                    wasCPS15 = true;
+                    cpsStartTime = Date.now();
+                }
+                // Check if we've maintained 15 CPS for 0.3 seconds (300ms)
+                if (cpsStartTime && Date.now() - cpsStartTime >= 300 && !data.achivements.includes('perfect_cps')) {
+                    data.achivements.push('perfect_cps');
+                }
+            } else {
+                wasCPS15 = false;
+                cpsStartTime = null;
             }
         }, 100);
 
@@ -1333,7 +1988,9 @@
                     if (goldenPoint.getAttribute("removed") == "true") {
                         return;
                     }
-                    const gain = 1000 * goldLevel;
+                    const ampLevel3 = data.upgrades.find(u => u.name === 'power_amplifier')?.level || 0;
+                    const amplifierBonus3 = 1 + (0.02 * ampLevel3);
+                    const gain = Math.floor(1000 * goldLevel * amplifierBonus3);
                     data.coins += gain;
                     // make the coins text size up
                     const coinsElem = document.getElementById('coins');
@@ -1354,21 +2011,8 @@
                     text.style.fontSize = '30px';
                     text.style.textShadow = '2px 2px 2px black';
                     text.style.pointerEvents = 'none';
-                    text.innerHTML = `+${gain} coins`;
-                    document.body.appendChild(text);
-                    let textY = y;
-                    function animateText() {
-                        if (textY < -20) {
-                            text.remove();
-                            return;
-                        }
-                        // fade out
-                        text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
-                        text.style.top = textY + 'px';
-                        textY -= 10;
-                        requestAnimationFrame(animateText);
-                    }
-                    animateText();
+                    text.innerHTML = `+${styleInt(gain)} coins`;
+                    addFloatingText(text, x, y, 0);
                     goldenPoint.remove();
                 };
             }
@@ -1464,22 +2108,8 @@
                 text.style.textShadow = '2px 2px 2px black';
                 text.style.pointerEvents = 'none';
                 text.innerHTML = `LOCKED`;
-                text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
-                document.body.appendChild(text);
-                let textY = window.innerHeight / 2;
-                function animateText() {
-                    if (textY < -20) {
-                        text.remove();
-                        return;
-                    }
-                    // fade out
-                    text.style.opacity = (textY / window.innerHeight - 0.05) * 0.3;
-                    text.style.top = textY + 'px';
-                    text.style.left = (parseFloat(text.style.left) + parseFloat(text.getAttribute('speedX'))) + 'px';
-                    textY -= 2;
-                    requestAnimationFrame(animateText);
-                }
-                animateText();
+                const speedX = (Math.random() - 0.5) * 4;
+                addFloatingText(text, window.innerWidth / 2, window.innerHeight / 2, speedX);
                 return; // locked
             }
             cps += 1;
@@ -1518,7 +2148,7 @@
                 text.style.fontSize = '20px';
                 text.style.textShadow = '2px 2px 2px black';
                 text.style.pointerEvents = 'none';
-                text.innerHTML = `+${gain} coins`;
+                text.innerHTML = `+${Math.floor(gain)} coins`;
                 // minimum: -2 maximum: 2
                 text.setAttribute('speedX', ((Math.random() - 0.5) * 4).toString());
                 document.body.appendChild(text);
@@ -1544,13 +2174,277 @@
             }, 100);
         }
 
-        setInterval(() => {
-            // if too much text on screen, remove oldest
-            const existingTexts = document.querySelectorAll('.gained_text');
-            if (existingTexts.length > 15) {
-                existingTexts[0].remove();
+        // Tasks system - Random & Refreshing
+        let taskPool = [
+            { id: 'clicks_10', name: 'Click 10 Times', description: 'Make 10 clicks', requirement: () => data.clicks >= 10, reward: 50 },
+            { id: 'clicks_50', name: 'Half Century', description: 'Make 50 clicks', requirement: () => data.clicks >= 50, reward: 100 },
+            { id: 'clicks_100', name: 'Centennial Clicker', description: 'Make 100 clicks', requirement: () => data.clicks >= 100, reward: 200 },
+            { id: 'clicks_500', name: 'Five Hundred Striker', description: 'Make 500 clicks', requirement: () => data.clicks >= 500, reward: 250 },
+            { id: 'clicks_1000', name: 'Millennial', description: 'Make 1000 clicks', requirement: () => data.clicks >= 1000, reward: 500 },
+            { id: 'coins_500', name: 'Penny Pincher', description: 'Accumulate 500 coins', requirement: () => data.coins >= 500, reward: 100 },
+            { id: 'coins_2000', name: 'Coin Collector', description: 'Accumulate 2000 coins', requirement: () => data.coins >= 2000, reward: 150 },
+            { id: 'coins_5000', name: 'Money Maker', description: 'Accumulate 5000 coins', requirement: () => data.coins >= 5000, reward: 300 },
+            { id: 'coins_25000', name: 'Wealthy', description: 'Accumulate 25000 coins', requirement: () => data.coins >= 25000, reward: 750 },
+            { id: 'coins_50000', name: 'Rich!', description: 'Accumulate 50000 coins', requirement: () => data.coins >= 50000, reward: 1000 },
+            { id: 'upgrades_1', name: 'First Step', description: 'Purchase 1 upgrade', requirement: () => (data.upgrades.length || 0) >= 1, reward: 75 },
+            { id: 'upgrades_3', name: 'Triple Upgrade', description: 'Purchase 3 upgrades', requirement: () => (data.upgrades.length || 0) >= 3, reward: 200 },
+            { id: 'upgrades_5', name: 'Upgrade Enthusiast', description: 'Purchase 5 upgrades', requirement: () => (data.upgrades.length || 0) >= 5, reward: 400 },
+            { id: 'base_1', name: 'Click Boost', description: 'Get base click to level 1', requirement: () => (data.upgrades.find(u => u.name === 'base_click')?.level || 0) >= 1, reward: 100 },
+            { id: 'base_3', name: 'Power Clicker', description: 'Get base click to level 3', requirement: () => (data.upgrades.find(u => u.name === 'base_click')?.level || 0) >= 3, reward: 250 },
+            { id: 'base_max', name: 'Base Master', description: 'Max base click upgrade', requirement: () => (data.upgrades.find(u => u.name === 'base_click')?.level || 0) >= 5, reward: 500 },
+            { id: 'auto_1', name: 'Auto Assistant', description: 'Get auto clicker to level 1', requirement: () => (data.upgrades.find(u => u.name === 'auto_clicker')?.level || 0) >= 1, reward: 150 },
+            { id: 'auto_5', name: 'Passive Pro', description: 'Get auto clicker to level 5', requirement: () => (data.upgrades.find(u => u.name === 'auto_clicker')?.level || 0) >= 5, reward: 400 },
+            { id: 'mult_1', name: 'Multiplier Start', description: 'Get multiplier to level 1', requirement: () => (data.upgrades.find(u => u.name === 'multiplier')?.level || 0) >= 1, reward: 200 },
+            { id: 'mult_2', name: 'Math Genius', description: 'Get multiplier to level 2', requirement: () => (data.upgrades.find(u => u.name === 'multiplier')?.level || 0) >= 2, reward: 350 },
+            { id: 'cascade_5', name: 'Chain Link', description: 'Trigger 5 cascade strikes', requirement: () => cascadeTriggersCount >= 5, reward: 150 },
+            { id: 'cascade_10', name: 'Chain Starter', description: 'Trigger 10 cascade strikes', requirement: () => cascadeTriggersCount >= 10, reward: 300 },
+            { id: 'cascade_25', name: 'Cascade Enthusiast', description: 'Trigger 25 cascade strikes', requirement: () => cascadeTriggersCount >= 25, reward: 500 },
+            { id: 'unlock_kai', name: 'Unlock the Blue', description: 'Unlock Kai cube', requirement: () => data.cubes.includes('kai'), reward: 200 },
+            { id: 'unlock_andrew', name: 'Unlock the Purple', description: 'Unlock Andrew cube', requirement: () => data.cubes.includes('andrew'), reward: 500 },
+        ];
+
+        let currentTasks = [];
+        let tasksLastRefresh = 0;
+        let currentTasksCompleted = [];
+
+        function getRandomTasks() {
+            const now = Date.now();
+            // Refresh tasks every 5 minutes (300000 ms)
+            if (now - tasksLastRefresh >= 300000 || currentTasks.length === 0) {
+                // Shuffle and select 6 random tasks
+                const shuffled = [...taskPool].sort(() => Math.random() - 0.5);
+                currentTasks = shuffled.slice(0, 6);
+                tasksLastRefresh = now;
+                currentTasksCompleted = [];
             }
-        }, 50);
+            return currentTasks;
+        }
+
+        if (!data.completedTasks) {
+            data.completedTasks = [];
+        }
+
+        // Initialize tasks on load
+        getRandomTasks();
+
+        // Tasks button
+        document.getElementById('tasks').onclick = () => {
+            let dial = document.createElement('dialog');
+            dial.style.padding = '30px';
+            dial.style.borderRadius = '15px';
+            dial.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            dial.style.color = 'white';
+            dial.style.fontFamily = 'BBH Bogle, cursive';
+            dial.style.border = '3px solid cyan';
+            dial.style.boxShadow = '0 0 30px rgba(0, 255, 255, 0.5)';
+            dial.style.minWidth = '400px';
+            dial.style.maxHeight = '600px';
+            dial.style.overflowY = 'auto';
+            dial.style.textAlign = 'center';
+
+            let h3 = document.createElement("h3");
+            h3.innerHTML = "TASKS (Rotate in 5 mins)";
+            h3.style.fontSize = '28px';
+            h3.style.marginBottom = '20px';
+            h3.style.textShadow = '2px 2px 4px black';
+            dial.appendChild(h3);
+
+            let tasksToShow = getRandomTasks();
+
+            tasksToShow.forEach(task => {
+                let taskElem = document.createElement('div');
+                taskElem.style.backgroundColor = 'rgba(100, 200, 255, 0.2)';
+                taskElem.style.border = '2px solid cyan';
+                taskElem.style.padding = '15px';
+                taskElem.style.marginBottom = '10px';
+                taskElem.style.borderRadius = '8px';
+                taskElem.style.textAlign = 'left';
+
+                let taskName = document.createElement('h4');
+                taskName.innerHTML = task.name;
+                taskName.style.margin = '0 0 5px 0';
+                taskName.style.color = currentTasksCompleted.includes(task.id) ? '#FFD700' : '#00FF00';
+
+                let taskDesc = document.createElement('p');
+                taskDesc.innerHTML = task.description;
+                taskDesc.style.margin = '5px 0';
+                taskDesc.style.fontSize = '14px';
+
+                let taskReward = document.createElement('p');
+                taskReward.innerHTML = `Reward: <span style="color: #FFD700;">${task.reward} coins</span>`;
+                taskReward.style.margin = '5px 0';
+                taskReward.style.fontSize = '14px';
+
+                taskElem.appendChild(taskName);
+                taskElem.appendChild(taskDesc);
+                taskElem.appendChild(taskReward);
+
+                if (!currentTasksCompleted.includes(task.id)) {
+                    let claimBtn = document.createElement('button');
+                    claimBtn.innerHTML = task.requirement() ? 'CLAIM' : 'INCOMPLETE';
+                    claimBtn.style.backgroundColor = task.requirement() ? 'rgb(50, 200, 50)' : 'rgb(150, 150, 150)';
+                    claimBtn.style.color = 'white';
+                    claimBtn.style.border = 'none';
+                    claimBtn.style.padding = '8px 20px';
+                    claimBtn.style.borderRadius = '5px';
+                    claimBtn.style.fontSize = '14px';
+                    claimBtn.style.cursor = task.requirement() ? 'pointer' : 'not-allowed';
+                    claimBtn.style.fontFamily = 'BBH Bogle, cursive';
+                    claimBtn.style.marginTop = '10px';
+                    claimBtn.disabled = !task.requirement();
+                    claimBtn.onclick = () => {
+                        if (task.requirement()) {
+                            data.coins += task.reward;
+                            currentTasksCompleted.push(task.id);
+                            claimBtn.remove();
+                            taskName.style.color = '#FFD700';
+                            let completedText = document.createElement('p');
+                            completedText.innerHTML = '✓ COMPLETED';
+                            completedText.style.color = '#FFD700';
+                            completedText.style.fontWeight = 'bold';
+                            completedText.style.marginTop = '10px';
+                            taskElem.appendChild(completedText);
+                        }
+                    };
+                    taskElem.appendChild(claimBtn);
+                } else {
+                    let completedText = document.createElement('p');
+                    completedText.innerHTML = '✓ COMPLETED';
+                    completedText.style.color = '#FFD700';
+                    completedText.style.fontWeight = 'bold';
+                    completedText.style.marginTop = '10px';
+                    taskElem.appendChild(completedText);
+                }
+
+                dial.appendChild(taskElem);
+            });
+
+            let closeBtn = document.createElement("button");
+            closeBtn.innerHTML = "Close";
+            closeBtn.style.backgroundColor = 'rgb(100, 100, 100)';
+            closeBtn.style.color = 'white';
+            closeBtn.style.border = 'none';
+            closeBtn.style.padding = '10px 30px';
+            closeBtn.style.borderRadius = '8px';
+            closeBtn.style.fontSize = '16px';
+            closeBtn.style.cursor = 'pointer';
+            closeBtn.style.fontFamily = 'BBH Bogle, cursive';
+            closeBtn.style.margin = '20px 0 0 0';
+            closeBtn.style.transition = 'background-color 0.3s';
+            closeBtn.onmouseover = () => closeBtn.style.backgroundColor = 'rgb(120, 120, 120)';
+            closeBtn.onmouseout = () => closeBtn.style.backgroundColor = 'rgb(100, 100, 100)';
+            closeBtn.onclick = () => {
+                dial.remove();
+            };
+            dial.appendChild(closeBtn);
+
+            document.body.appendChild(dial);
+            dial.showModal();
+        };
+
+        // Burdens button
+        document.getElementById('burdens').onclick = () => {
+            let dial = document.createElement('dialog');
+            dial.style.padding = '30px';
+            dial.style.borderRadius = '15px';
+            dial.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            dial.style.color = 'white';
+            dial.style.fontFamily = 'BBH Bogle, cursive';
+            dial.style.border = '3px solid #8B4513';
+            dial.style.boxShadow = '0 0 30px rgba(139, 69, 19, 0.5)';
+            dial.style.minWidth = '450px';
+            dial.style.maxHeight = '650px';
+            dial.style.overflowY = 'auto';
+            dial.style.textAlign = 'center';
+
+            let h3 = document.createElement("h3");
+            h3.innerHTML = "⚠️ BURDENS ⚠️";
+            h3.style.fontSize = '28px';
+            h3.style.marginBottom = '20px';
+            h3.style.textShadow = '2px 2px 4px black';
+            h3.style.color = '#FFB347';
+            dial.appendChild(h3);
+
+            let infoP = document.createElement("p");
+            infoP.innerHTML = "Your progress brings greater challenges. Burdens unlock as you accumulate coins.";
+            infoP.style.fontSize = '14px';
+            infoP.style.marginBottom = '20px';
+            infoP.style.color = '#CCCCCC';
+            infoP.style.fontStyle = 'italic';
+            dial.appendChild(infoP);
+
+            for (const milestone of milestones) {
+                let burdenElem = document.createElement('div');
+                const isUnlocked = data.achivements.includes(milestone.id);
+                
+                burdenElem.style.backgroundColor = isUnlocked ? 'rgba(200, 0, 0, 0.3)' : 'rgba(100, 100, 100, 0.3)';
+                burdenElem.style.border = isUnlocked ? '2px solid #FF6B6B' : '2px solid #808080';
+                burdenElem.style.padding = '15px';
+                burdenElem.style.marginBottom = '15px';
+                burdenElem.style.borderRadius = '8px';
+                burdenElem.style.textAlign = 'left';
+
+                let burdenName = document.createElement('h4');
+                burdenName.innerHTML = milestone.name;
+                burdenName.style.margin = '0 0 10px 0';
+                burdenName.style.color = isUnlocked ? '#FF6B6B' : '#A9A9A9';
+                burdenName.style.fontSize = '18px';
+
+                let requirementP = document.createElement('p');
+                requirementP.innerHTML = `<strong>Requirement:</strong> ${milestone.coins.toLocaleString()} coins`;
+                requirementP.style.margin = '5px 0';
+                requirementP.style.fontSize = '14px';
+                requirementP.style.color = '#FFFF99';
+
+                let burdenDescP = document.createElement('p');
+                burdenDescP.innerHTML = `<strong>Effect:</strong> ${milestone.burden}`;
+                burdenDescP.style.margin = '5px 0';
+                burdenDescP.style.fontSize = '14px';
+                burdenDescP.style.color = '#CCCCCC';
+
+                let statusP = document.createElement('p');
+                statusP.style.margin = '10px 0 0 0';
+                statusP.style.fontSize = '13px';
+                statusP.style.fontWeight = 'bold';
+                
+                if (isUnlocked) {
+                    statusP.innerHTML = '✓ UNLOCKED';
+                    statusP.style.color = '#00FF00';
+                } else {
+                    const coinsNeeded = milestone.coins - Math.floor(data.coins);
+                    statusP.innerHTML = `LOCKED • ${coinsNeeded.toLocaleString()} coins needed`;
+                    statusP.style.color = '#FF9999';
+                }
+
+                burdenElem.appendChild(burdenName);
+                burdenElem.appendChild(requirementP);
+                burdenElem.appendChild(burdenDescP);
+                burdenElem.appendChild(statusP);
+                dial.appendChild(burdenElem);
+            }
+
+            let closeBtn = document.createElement("button");
+            closeBtn.innerHTML = "Close";
+            closeBtn.style.backgroundColor = 'rgb(100, 100, 100)';
+            closeBtn.style.color = 'white';
+            closeBtn.style.border = 'none';
+            closeBtn.style.padding = '10px 30px';
+            closeBtn.style.borderRadius = '8px';
+            closeBtn.style.fontSize = '16px';
+            closeBtn.style.cursor = 'pointer';
+            closeBtn.style.fontFamily = 'BBH Bogle, cursive';
+            closeBtn.style.margin = '20px 0 0 0';
+            closeBtn.style.transition = 'background-color 0.3s';
+            closeBtn.onmouseover = () => closeBtn.style.backgroundColor = 'rgb(120, 120, 120)';
+            closeBtn.onmouseout = () => closeBtn.style.backgroundColor = 'rgb(100, 100, 100)';
+            closeBtn.onclick = () => {
+                dial.remove();
+            };
+            dial.appendChild(closeBtn);
+
+            document.body.appendChild(dial);
+            dial.showModal();
+        };
 
         // daily reward logic
         document.body.onload = () => {
@@ -1560,38 +2454,102 @@
         };
 
         // daily reward button
-        document.getElementById('daily_reward').onclick = () => {
+        document.getElementById('daily').onclick = () => {
             const today = new Date().toDateString();
             let dial = document.createElement('dialog');
-            dial.style.padding = '20px';
-            dial.style.borderRadius = '10px';
-            dial.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            dial.style.padding = '30px';
+            dial.style.borderRadius = '15px';
+            dial.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
             dial.style.color = 'white';
-            dial.style.fontFamily = 'Arial, sans-serif';
+            dial.style.fontFamily = 'BBH Bogle, cursive';
+            dial.style.border = '3px solid gold';
+            dial.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.5)';
+            dial.style.minWidth = '350px';
+            dial.style.textAlign = 'center';
             if (data.lastDate === today) {
-                dial.innerHTML = `<h3>Daily Reward</h3><p>You have already claimed your daily reward today. Come back tomorrow!</p><button id="close_daily">Close</button>`;
+                let h3 = document.createElement("h3")
+                h3.innerHTML = "Daily Reward"
+                h3.style.fontSize = '28px'
+                h3.style.marginBottom = '20px'
+                h3.style.textShadow = '2px 2px 4px black'
+                dial.appendChild(h3)
+                let p = document.createElement("p")
+                p.innerHTML = "You have already claimed your daily reward today. Come back tomorrow!"
+                p.style.fontSize = '18px'
+                p.style.marginBottom = '20px'
+                dial.appendChild(p)
+                let closeBtn = document.createElement("button")
+                closeBtn.id = "close_daily"
+                closeBtn.innerHTML = "Close"
+                closeBtn.style.backgroundColor = 'rgb(200, 50, 50)'
+                closeBtn.style.color = 'white'
+                closeBtn.style.border = 'none'
+                closeBtn.style.padding = '10px 30px'
+                closeBtn.style.borderRadius = '8px'
+                closeBtn.style.fontSize = '16px'
+                closeBtn.style.cursor = 'pointer'
+                closeBtn.style.fontFamily = 'BBH Bogle, cursive'
+                closeBtn.style.transition = 'background-color 0.3s'
+                closeBtn.onmouseover = () => closeBtn.style.backgroundColor = 'rgb(220, 70, 70)'
+                closeBtn.onmouseout = () => closeBtn.style.backgroundColor = 'rgb(200, 50, 50)'
+                dial.appendChild(closeBtn)
+                closeBtn.onclick = () => {
+                    dial.remove();
+                };
             } else {
                 let h3 = document.createElement("h3")
                 h3.innerHTML = "Daily Reward"
+                h3.style.fontSize = '28px'
+                h3.style.marginBottom = '20px'
+                h3.style.textShadow = '2px 2px 4px black'
                 dial.appendChild(h3)
                 let img = document.createElement("img")
                 img.id = "giftimg"
                 img.src = "gift.png"
-                img.style.width = "100px"
-                img.style.height = "100px"
+                img.style.width = "120px"
+                img.style.height = "120px"
+                img.style.margin = '20px auto'
+                img.style.cursor = 'pointer'
+                img.style.display = 'block'
+                let br = document.createElement("br")
                 let btn = document.createElement("button")
                 btn.id = "open_gift"
                 btn.innerHTML = "Open Gift"
+                btn.style.backgroundColor = 'rgb(50, 150, 50)'
+                btn.style.color = 'white'
+                btn.style.border = 'none'
+                btn.style.padding = '12px 40px'
+                btn.style.borderRadius = '8px'
+                btn.style.fontSize = '18px'
+                btn.style.cursor = 'pointer'
+                btn.style.fontFamily = 'BBH Bogle, cursive'
+                btn.style.transition = 'background-color 0.3s'
+                btn.style.display = 'block'
+                btn.style.margin = '0 auto'
+                btn.onmouseover = () => btn.style.backgroundColor = 'rgb(70, 170, 70)'
+                btn.onmouseout = () => btn.style.backgroundColor = 'rgb(50, 150, 50)'
                 dial.appendChild(img)
+                dial.appendChild(br)
                 dial.appendChild(btn)
+                dial.appendChild(br)
                 let closeBtn = document.createElement("button")
                 closeBtn.id = "close_daily"
                 closeBtn.innerHTML = "Close"
+                closeBtn.style.backgroundColor = 'rgb(100, 100, 100)'
+                closeBtn.style.color = 'white'
+                closeBtn.style.border = 'none'
+                closeBtn.style.padding = '10px 30px'
+                closeBtn.style.borderRadius = '8px'
+                closeBtn.style.fontSize = '16px'
+                closeBtn.style.cursor = 'pointer'
+                closeBtn.style.fontFamily = 'BBH Bogle, cursive'
+                closeBtn.style.margin = '10px auto 0'
+                closeBtn.style.transition = 'background-color 0.3s'
+                closeBtn.style.display = 'block'
+                closeBtn.onmouseover = () => closeBtn.style.backgroundColor = 'rgb(120, 120, 120)'
+                closeBtn.onmouseout = () => closeBtn.style.backgroundColor = 'rgb(100, 100, 100)'
                 dial.appendChild(closeBtn)
-                document.getElementById('close_daily').onclick = () => {
-                    dial.close();
-                };
-                document.getElementById('open_gift').onclick = () => {
+                btn.onclick = () => {
                     // determine reward
                     const rewards = [
                         100,
@@ -1606,19 +2564,17 @@
                         { upgrade: "kai", rare: true }
                     ]
                     // weighted random reward
-                    let totalWeight = 0;
                     const weights = [30, 25, 20, 15, 10, 8, 5, 3, 2, 1];
-                    for (let w of weights) {
-                        totalWeight += w;
-                    }
+                    let totalWeight = weights.reduce((a, b) => a + b, 0);
                     let rand = Math.random() * totalWeight;
                     let reward;
+                    let cumulativeWeight = 0;
                     for (let i = 0; i < rewards.length; i++) {
-                        if (rand < weights[i]) {
+                        cumulativeWeight += weights[i];
+                        if (rand < cumulativeWeight) {
                             reward = rewards[i];
                             break;
                         }
-                        rand -= weights[i];
                     }
                     // give the reward
                     if (typeof reward === 'number') {
@@ -1655,24 +2611,59 @@
                             }
                         }
                     }
+
+                    data.lastDate = today;
+                    // do a glowing effect on the gift image
+                    let glow = document.createElement('style');
+                    glow.innerHTML = `
+                        @keyframes glow {
+                            0% { filter: drop-shadow(0 0 5px gold) brightness(1); }
+                            50% { filter: drop-shadow(0 0 15px gold) brightness(1.2); }
+                            100% { filter: drop-shadow(0 0 5px gold) brightness(1); }
+                        }
+                        @keyframes spin {
+                            0% { transform: rotateZ(0deg) scale(1); }
+                            50% { transform: rotateZ(5deg) scale(1.05); }
+                            100% { transform: rotateZ(0deg) scale(1); }
+                        }
+                        #giftimg {
+                            animation: spin 0.5s ease-in-out, glow 2s infinite;
+                        }
+                    `;
+                    document.head.appendChild(glow);
+                    // apply effect to gift image
+                    img.style.animation = 'spin 0.5s ease-in-out, glow 2s infinite';
+                    // disable open gift button after clicked
+                    btn.disabled = true;
+                    btn.style.opacity = '0.5'
+                    btn.style.cursor = 'not-allowed'
+                    // after effect ends, remove gift image and show reward
+                    setTimeout(() => {
+                        img.remove();
+                        let rewardText = document.createElement('p');
+                        rewardText.style.fontSize = '20px'
+                        rewardText.style.fontWeight = 'bold'
+                        rewardText.style.color = 'gold'
+                        rewardText.style.textShadow = '2px 2px 4px black'
+                        rewardText.style.margin = '20px 0'
+                        if (typeof reward === 'number') {
+                            rewardText.innerHTML = `✨ You received ${reward} coins! ✨`;
+                        } else if (reward.upgrade) {
+                            if (reward.rare && reward.upgrade === "kai") {
+                                rewardText.innerHTML = `✨ You received the rare cube: Kai! ✨`;
+                            } else {
+                                rewardText.innerHTML = `✨ You received the upgrade: ${reward.upgrade.replace('_', ' ').toUpperCase()} Level ${reward.level}! ✨`;
+                            }
+                        }
+                        dial.insertBefore(rewardText, closeBtn);
+                    }, 2000);
                 }
-
-                data.lastDate = today;
-                // do a glowing effect on the gift image
-                let glow = document.createElement('style');
-                glow.innerHTML = `@keyframes glow {
-                    0% { box-shadow: 0 0 5px gold; }
-                    50% { box-shadow: 0 0 20px gold; }
-                    100% { box-shadow: 0 0 5px gold; }
-                }`;
-                
-
+                closeBtn.onclick = () => {
+                    dial.remove();
+                };
             }
             document.body.appendChild(dial);
             dial.showModal();
-            document.getElementById('close_daily').onclick = () => {
-                dial.close();
-            };
         };
     </script>
 </body>
